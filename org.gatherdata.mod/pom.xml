@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.gatherdata</groupId>
+  <artifactId>org.gatherdata.mod</artifactId>
+
+  <packaging>bundle</packaging>
+  <version>1.0</version>
+
+  <name>gather-bundle-archetype</name>
+
+  <url>http://www.gatherdata.org</url>
+
+  <prerequisites>
+    <maven>2.0.9</maven>
+  </prerequisites>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.5</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi_R4_core</artifactId>
+      <optional>true</optional>
+      <version>1.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi_R4_compendium</artifactId>
+      <optional>true</optional>
+      <version>1.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>aopalliance</groupId>
+      <artifactId>aopalliance</artifactId>
+      <version>1.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.guice</groupId>
+      <artifactId>guice</artifactId>
+      <version>snapshot-20081016</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.peaberry</groupId>
+      <artifactId>peaberry</artifactId>
+      <version>1.0-beta</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <defaultGoal>install</defaultGoal>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.0.2</version>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <manifest>
+              <mainClass>${pom.artifactId}.App</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <version>1.4.3</version>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+            <Export-Package>${pom.artifactId}.spi;-split-package:=merge-last</Export-Package>
+            <Private-Package>${pom.artifactId}.*;-split-package:=merge-last</Private-Package>
+            <Bundle-Activator>${pom.artifactId}.osgi.Activator</Bundle-Activator>
+          </instructions>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.ops4j</groupId>
+        <artifactId>maven-pax-plugin</artifactId>
+        <version>1.4</version>
+        <extensions>true</extensions>
+        <configuration>
+          <provision>
+            <param>--platform=felix</param>
+            <param>--profiles=log</param>
+          </provision>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

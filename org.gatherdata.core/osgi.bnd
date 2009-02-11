@@ -1,0 +1,6 @@
+#-----------------------------------------------------------------
+# Use this file to add customized Bnd instructions for the bundle
+#-----------------------------------------------------------------
+
+# Nothing in the core package is private, so leave it blank
+Private-Package:
