@@ -11,7 +11,7 @@
   <artifactId>gather-common</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>GATHER Common (feature)</name>
+  <name>gather-common (feature)</name>
 
   <description>The common infrastructure for GATHER applications.</description>
 

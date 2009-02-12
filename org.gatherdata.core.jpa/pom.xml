@@ -22,7 +22,7 @@
 	<artifactId>org.gatherdata.core.jpa</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
-	<name>GATHER JPA extensions (library)</name>
+	<name>gather-common - JPA model (library)</name>
 
 	<packaging>bundle</packaging>
 

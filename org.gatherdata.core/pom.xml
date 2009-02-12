@@ -8,7 +8,7 @@
 	<artifactId>org.gatherdata.core</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
-	<name>GATHER Core (library)</name>
+	<name>gather-common - core (library)</name>
 
 	<packaging>bundle</packaging>
 

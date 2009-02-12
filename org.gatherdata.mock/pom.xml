@@ -8,7 +8,7 @@
 	<artifactId>org.gatherdata.mock</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
-	<name>GATHER Mock-up</name>
+	<name>gather-common - mock (service)</name>
     <description>Provides mocked-up implementations of the services which participate in the GATHER workflow.</description>
 
 	<parent>

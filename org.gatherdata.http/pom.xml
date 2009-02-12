@@ -20,7 +20,7 @@
     <artifactId>org.gatherdata.http</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>GATHER HTTP (library)</name>
+    <name>gather-common - http (library)</name>
 
     <description>Provides http servlets and utilities</description>
 

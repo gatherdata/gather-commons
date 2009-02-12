@@ -18,7 +18,7 @@
   <artifactId>org.gatherdata.db.hsqldb</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>GATHER hsqldb (service)</name>
+  <name>gather-common - hsqldb (service)</name>
 
   <description>Starts an in-process hsqldb server.</description>
 
