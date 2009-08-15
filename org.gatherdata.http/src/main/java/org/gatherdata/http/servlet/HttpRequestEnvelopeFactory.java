@@ -9,20 +9,20 @@ import javax.activation.MimeType;
 import javax.activation.MimeTypeParseException;
 import javax.servlet.http.HttpServletRequest;
 
-import org.gatherdata.core.model.Envelope;
-import org.gatherdata.core.model.GenericEnvelope;
+import org.gatherdata.core.model.Receipt;
+import org.gatherdata.core.model.GenericReceipt;
 import org.gatherdata.core.net.DnsUrlFactory;
 
 public class HttpRequestEnvelopeFactory {
 
-    public static Envelope stuffEnvelopeFromPost(HttpServletRequest request) 
+    public static Receipt stuffEnvelopeFromPost(HttpServletRequest request) 
     throws IOException, MimeTypeParseException {
         return stuffEnvelopeFrom(request, request.getReader());
     }
     
-    public static Envelope stuffEnvelopeFrom(HttpServletRequest request, Reader contentReader) 
+    public static Receipt stuffEnvelopeFrom(HttpServletRequest request, Reader contentReader) 
     throws IOException, MimeTypeParseException {
-    	Envelope stuffedEnvelope = null;
+    	Receipt stuffedEnvelope = null;
     	
         // generate a source URI from the request
         String remoteHost = request.getRemoteHost();
@@ -35,7 +35,7 @@ public class HttpRequestEnvelopeFactory {
 
         MimeType contentType = new MimeType(request.getContentType());
 
-        stuffedEnvelope = new GenericEnvelope(fromSource, content, contentType);
+        //stuffedEnvelope = new GenericReceipt(fromSource, content, contentType);
 
         return stuffedEnvelope;
     }

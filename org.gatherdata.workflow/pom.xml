@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-  <name>gather-common - workflow (service)</name>
+  <name>GATHER Workflow</name>
   <description>Orchestrates the gathering, transformation and alerting of data.</description>
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.gatherdata.gather-common</groupId>
+  <groupId>org.gatherdata.gather-framework</groupId>
   <artifactId>org.gatherdata.workflow</artifactId>
   <version>1.0-SNAPSHOT</version>
 
@@ -13,7 +13,7 @@
 
   <parent>
     <relativePath>../poms/compiled/</relativePath>
-    <groupId>org.gatherdata.gather-common.build</groupId>
+    <groupId>org.gatherdata.gather-framework.build</groupId>
     <artifactId>compiled-bundle-settings</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
@@ -41,7 +41,7 @@
       <optional>true</optional>
     </dependency>
 		<dependency>
-			<groupId>org.gatherdata.gather-common</groupId>
+			<groupId>org.gatherdata.gather-framework</groupId>
 			<artifactId>org.gatherdata.core</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>

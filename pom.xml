@@ -1,93 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-  <organization>
-    <name>GATHERing</name>
-    <url>http://www.gatherdata.org</url>
-  </organization>
+    <organization>
+        <name>GATHERing</name>
+        <url>http://www.gatherdata.org</url>
+    </organization>
 
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.gatherdata</groupId>
-  <artifactId>gather-common</artifactId>
-  <version>1.0-SNAPSHOT</version>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.gatherdata</groupId>
+    <artifactId>gather-common</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
-  <name>gather-common (feature)</name>
+    <name>gather-common (feature)</name>
 
-  <description>The common infrastructure for GATHER applications.</description>
+    <description>The common infrastructure for GATHER applications.</description>
 
-  <properties>
-    <gather.common.version>1.0-SNAPSHOT</gather.common.version>
-    <org.osgi.service.http.port>8080</org.osgi.service.http.port>
-    <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
-  </properties>
+    <properties>
+        <!-- build properties -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-  <packaging>pom</packaging>
+        <!-- runtime properties -->
+        <org.osgi.service.http.port>8080</org.osgi.service.http.port>
+        <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
 
-  <repositories>
-    <repository>
-      <id>org.ops4j</id>
-      <name>OPS4J Maven Repository</name>
-      <url>http://repository.ops4j.org/maven2/</url>
-    </repository>
-    <repository>
-      <id>ops4j.snapshots</id>
-      <url>http://repository.ops4j.org/mvn-snapshots/</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-    </repository>
-    <repository>
-      <id>com.springsource.repository.bundles.release</id>
-      <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
-      <url>http://repository.springsource.com/maven/bundles/release</url>
-    </repository>
-    <repository>
-      <id>com.springsource.repository.bundles.external</id>
-      <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
-      <url>http://repository.springsource.com/maven/bundles/external</url>
-    </repository>
-  </repositories>
+        <!-- versions -->
+        <gather-common.version>1.0-SNAPSHOT</gather-common.version>
+        <peaberry.version>1.1.1</peaberry.version>
+        <aopalliance.version>1.0_1</aopalliance.version>
+        <joda-time.version>1.5.2_1</joda-time.version>
+        <commons-codec.version>1.2_1</commons-codec.version>
+        <commons-lang.version>2.4</commons-lang.version>
+    </properties>
 
-  <modules>
-    <module>poms</module>
-    <module>provision</module>
-    <module>org.gatherdata.core</module>
-    <module>org.gatherdata.mock</module>
-    <module>org.gatherdata.workflow</module>
-    <module>org.gatherdata.http</module>
-    <module>org.gatherdata.db.hsqldb</module>
-    <module>org.gatherdata.core.jpa</module>
-  </modules>
+    <packaging>pom</packaging>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.ops4j</groupId>
-        <artifactId>maven-pax-plugin</artifactId>
-        <version>1.4</version>
-        <configuration>
-          <provision>
-            <param>--platform=felix</param>
-            <param>--profiles=logging</param>
-          </provision>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+    <repositories>
+        <repository>
+            <id>org.ops4j</id>
+            <name>OPS4J Maven Repository</name>
+            <url>http://repository.ops4j.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>ops4j.snapshots</id>
+            <url>http://repository.ops4j.org/mvn-snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+    </repositories>
 
-  <profiles>
-    <!-- integration testing profile -->
-    <profile>
-      <id>iandt</id>
-      <activation>
-        <property>
-          <name>env-test</name>
-        </property>
-      </activation>
-      <modules>
-        <module>integration-tests</module>
-      </modules>
-    </profile>
-  </profiles>
+    <modules>
+        <module>poms</module>
+        <module>provision</module>
+        <module>org.gatherdata.core</module>
+        <module>org.gatherdata.mock</module>
+        <module>org.gatherdata.http</module>
+        <module>org.gatherdata.db.hsqldb</module>
+        <module>org.gatherdata.core.jpa</module>
+        <module>org.gatherdata.common.features</module>
+        <module>org.apache.lucene.core</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.ops4j</groupId>
+                <artifactId>maven-pax-plugin</artifactId>
+                <version>1.4</version>
+                <configuration>
+                    <framework>felix</framework>
+                    <profiles>log</profiles>
+                    <!-- noDependencies=true to force all required bundles to be part of a feature -->
+                    <noDependencies>true</noDependencies>
+                    <provision>
+                        <param>scan-features:mvn:org.neo4j.apoc-bundle/org.neo4j.neo.karaf/1.0-SNAPSHOT/xml/features!/neo4j-core</param>
+                        <param>scan-features:mvn:org.gatherdata.gather-common/org.gatherdata.common.features/1.0-SNAPSHOT/xml/features!/gather-common-dependencies,neo4j-dependencies</param>
+                    </provision>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <!-- integration testing profile -->
+        <profile>
+            <id>iandt</id>
+            <activation>
+                <property>
+                    <name>env-test</name>
+                </property>
+            </activation>
+            <modules>
+                <module>integration-tests</module>
+            </modules>
+        </profile>
+    </profiles>
+
+    <distributionManagement>
+        <!-- 
+            NOTE: this uses an internal server run by Andreas Kollegger
+            which is ~not~ available on the Internet. 
+          -->
+        <repository>
+            <id>tembo.releases</id>
+            <name>Tembo Internal Releases</name>
+            <url>http://fatty-server.local.:8081/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>tembo.snapshots</id>
+            <name>Tembo Internal Snapshots</name>
+            <url>http://fatty-server.local.:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>

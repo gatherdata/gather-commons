@@ -31,11 +31,6 @@
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>org.gatherdata.gather-common</groupId>
-			<artifactId>org.gatherdata.storage.archiver</artifactId>
-			<version>1.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.osgi</groupId>
 			<artifactId>spring-osgi-core</artifactId>
 			<version>1.1.2</version>

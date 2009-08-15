@@ -7,7 +7,6 @@ import java.util.GregorianCalendar;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import org.gatherdata.core.io.MimeTypes;
@@ -38,15 +37,13 @@ public class EnvelopeDtoTest {
 	@Test
 	public void shouldSaveToGenericJpaEntityManager() {
         final String content = "foo";
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
+
         EnvelopeDTO sampleDTO = new EnvelopeDTO();
 	    sampleDTO.setContents(content);
 	    sampleDTO.setDateTimeStamp(GregorianCalendar.getInstance());
 	    sampleDTO.setSource(urnFactory.getLocalUrn());
 	    sampleDTO.setUid(CbidFactory.createCbid(content));
 		em.persist(sampleDTO);
-		tx.commit();
 	}
 	
 	@Test

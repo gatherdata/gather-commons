@@ -3,9 +3,6 @@ package org.gatherdata.mock.osgi;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
-import org.gatherdata.mock.spi.MockEnvelopeService;
-import org.gatherdata.mock.spi.support.MockEnvelopeServiceImpl;
-
 /**
  * Extension of the default OSGi bundle activator
  */
@@ -24,7 +21,7 @@ public final class MockActivator
         System.out.println( "REGISTER org.gatherdata.mock.spi.MockEnvelopeService" );
 
         // Register our example service implementation in the OSGi service registry
-        bc.registerService( MockEnvelopeService.class.getName(), new MockEnvelopeServiceImpl(), null );
+        //bc.registerService( MockEnvelopeService.class.getName(), new MockEnvelopeServiceImpl(), null );
     }
 
     /**

@@ -7,8 +7,6 @@ import java.util.Enumeration;
 
 import org.springframework.osgi.util.OsgiStringUtils;
 import org.gatherdata.core.io.MimeTypes;
-import org.gatherdata.core.model.Envelope;
-import org.gatherdata.core.model.TextEnvelope;
 import org.osgi.framework.Constants;
 import org.osgi.framework.Bundle;
 
