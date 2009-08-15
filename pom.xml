@@ -104,12 +104,12 @@
         <repository>
             <id>tembo.releases</id>
             <name>Tembo Internal Releases</name>
-            <url>http://fatty-server.local.:8081/nexus/content/repositories/releases/</url>
+            <url>http://fatty-server.local.:8081/nexus/content/repositories/releases</url>
         </repository>
         <snapshotRepository>
             <id>tembo.snapshots</id>
             <name>Tembo Internal Snapshots</name>
-            <url>http://fatty-server.local.:8081/nexus/content/repositories/snapshots/</url>
+            <url>http://fatty-server.local.:8081/nexus/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
