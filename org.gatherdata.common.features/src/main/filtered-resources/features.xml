@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<features>
+    
+  <feature name="neo4j-dependencies" version="1.0-b9-SNAPSHOT">
+    <bundle>mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
+    <bundle>mvn:org.gatherdata.gather-common/org.apache.lucene.core/2.4.0-001</bundle>
+  </feature>
+
+  <feature name="google-peaberry" version="${peaberry.version}">
+    <bundle>mvn:org.ops4j/peaberry/${peaberry.version}</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aopalliance/${aopalliance.version}</bundle>
+    <bundle>mvn:org.ops4j.peaberry.dependencies/guice/2.0-SNAPSHOT</bundle>
+  </feature>
+
+  <feature name="gather-common-dependencies" version="${gather-common.version}">
+    <feature>google-peaberry</feature>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.joda-time/${joda-time.version}</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.commons-codec/${commons-codec.version}</bundle>
+    <bundle>mvn:commons-lang/commons-lang/${commons-lang.version}</bundle>
+  </feature>
+	
+  <feature name="gather-core" version="${gather-common.version}">
+      <feature>gather-common-dependencies</feature>
+      <bundle>mvn:org.gatherdata.gather-common/org.gatherdata.core/${gather-common.version}</bundle>
+  </feature>
+
+</features>

@@ -9,6 +9,7 @@ import static org.junit.Assert.assertArrayEquals;
 import java.security.NoSuchAlgorithmException;
 
 import org.apache.commons.codec.binary.Hex;
+import org.gatherdata.core.security.Seal;
 import org.junit.Test;
 
 

@@ -3,7 +3,7 @@ package org.gatherdata.core.spi.dao;
 import java.net.URI;
 import java.util.List;
 
-import org.gatherdata.core.model.Envelope;
+import org.gatherdata.core.model.Receipt;
 
 /**
  * Generic interface for a DAO which supports persistence of Envelopes.
@@ -16,7 +16,7 @@ public interface EnvelopeStorageDao {
      * 
      * @return List of Envelopes
      */
-    List<? extends Envelope> getAllEnvelopes();
+    List<? extends Receipt> getAllEnvelopes();
 
     /**
      * Retrieves a specific Envelope, based on its uid.
@@ -25,7 +25,7 @@ public interface EnvelopeStorageDao {
      *            the uid of the Envelope
      * @return the requested Envelope, or null if not available
      */
-    Envelope getEnvelope(URI identifiedByUid);
+    Receipt getEnvelope(URI identifiedByUid);
 
     /**
      * Checks for existence of an Envelope.
@@ -43,7 +43,7 @@ public interface EnvelopeStorageDao {
      *            the object to save
      * @return the persisted object
      */
-    Envelope save(Envelope envelopeToSave);
+    Receipt save(Receipt envelopeToSave);
 
     /**
      * Removes an Envelope.
