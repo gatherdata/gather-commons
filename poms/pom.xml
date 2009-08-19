@@ -9,10 +9,10 @@
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.gatherdata.gather-common.build</groupId>
+  <groupId>org.gatherdata.gather-commons.build</groupId>
   <artifactId>shared-plugin-settings</artifactId>
 
-  <name>gather-common - plugin configuration</name>
+  <name>gather-commons - plugin configuration</name>
 
   <packaging>pom</packaging>
 

@@ -42,7 +42,7 @@
     </dependency>
 		<dependency>
 			<groupId>org.gatherdata.gather-framework</groupId>
-			<artifactId>org.gatherdata.core</artifactId>
+			<artifactId>org.gatherdata.commons.core</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>

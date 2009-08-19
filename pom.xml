@@ -8,10 +8,10 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.gatherdata</groupId>
-    <artifactId>gather-common</artifactId>
+    <artifactId>gather-commons</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>gather-common (feature)</name>
+    <name>gather-commons (project)</name>
 
     <description>The common infrastructure for GATHER applications.</description>
 
@@ -24,15 +24,27 @@
         <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
 
         <!-- versions -->
-        <gather-common.version>1.0-SNAPSHOT</gather-common.version>
+        <gather-commons.version>1.0-SNAPSHOT</gather-commons.version>
         <peaberry.version>1.1.1</peaberry.version>
         <aopalliance.version>1.0_1</aopalliance.version>
         <joda-time.version>1.5.2_1</joda-time.version>
         <commons-codec.version>1.2_1</commons-codec.version>
         <commons-lang.version>2.4</commons-lang.version>
+        <geronimo.jta.version>1.1.1</geronimo.jta.version>
+        <eclipselink.version>2.0.0-M6</eclipselink.version>
     </properties>
 
     <packaging>pom</packaging>
+
+    <modules>
+        <module>poms</module>
+        <module>org.gatherdata.commons.core</module>
+        <module>org.gatherdata.mock</module>
+        <module>org.gatherdata.commons.http</module>
+        <module>org.gatherdata.commons.db.hsqldb</module>
+        <module>org.gatherdata.commons.features</module>
+        <module>org.apache.lucene.core</module>
+    </modules>
 
     <repositories>
         <repository>
@@ -49,18 +61,6 @@
         </repository>
     </repositories>
 
-    <modules>
-        <module>poms</module>
-        <module>provision</module>
-        <module>org.gatherdata.core</module>
-        <module>org.gatherdata.mock</module>
-        <module>org.gatherdata.http</module>
-        <module>org.gatherdata.db.hsqldb</module>
-        <module>org.gatherdata.core.jpa</module>
-        <module>org.gatherdata.common.features</module>
-        <module>org.apache.lucene.core</module>
-    </modules>
-
     <build>
         <plugins>
             <plugin>
@@ -74,7 +74,7 @@
                     <noDependencies>true</noDependencies>
                     <provision>
                         <param>scan-features:mvn:org.neo4j.apoc-bundle/org.neo4j.neo.karaf/1.0-SNAPSHOT/xml/features!/neo4j-core</param>
-                        <param>scan-features:mvn:org.gatherdata.gather-common/org.gatherdata.common.features/1.0-SNAPSHOT/xml/features!/gather-common-dependencies,neo4j-dependencies</param>
+                        <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0-SNAPSHOT/xml/features!/gather-core,gather-hsqldb,neo4j-dependencies,eclipselink</param>
                     </provision>
                 </configuration>
             </plugin>

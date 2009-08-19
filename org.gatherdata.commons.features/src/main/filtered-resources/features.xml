@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<features>
+    
+  <feature name="neo4j-dependencies" version="1.0-b9">
+    <bundle>mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
+    <bundle>mvn:org.gatherdata.gather-common/org.apache.lucene.core/2.4.0-001</bundle>
+  </feature>
+
+  <feature name="google-peaberry" version="${peaberry.version}">
+    <bundle>mvn:org.ops4j/peaberry/${peaberry.version}</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aopalliance/${aopalliance.version}</bundle>
+    <bundle>mvn:org.ops4j.peaberry.dependencies/guice/2.0-SNAPSHOT</bundle>
+  </feature>
+
+  <feature name="eclipselink" version="${eclipselink.version}">
+      <bundle>mvn:http://mirror.cc.columbia.edu/pub/software/eclipse/rt/eclipselink/maven.repo/!org.eclipse.persistence/javax.persistence/${eclipselink.version}</bundle>
+  </feature>
+
+  <feature name="gather-commons-dependencies" version="${gather-commons.version}">
+    <feature>google-peaberry</feature>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.joda-time/${joda-time.version}</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.commons-codec/${commons-codec.version}</bundle>
+    <bundle>mvn:commons-lang/commons-lang/${commons-lang.version}</bundle>
+  </feature>
+	
+  <feature name="gather-core" version="${gather-commons.version}">
+      <feature>gather-commons-dependencies</feature>
+      <bundle>mvn:org.gatherdata.gather-commons/org.gatherdata.commons.core/${gather-commons.version}</bundle>
+  </feature>
+
+  <feature name="gather-hsqldb" version="${gather-commons.version}">
+      <feature>gather-core</feature>
+      <bundle>mvn:org.hsqldb/com.springsource.org.hsqldb/1.8.0.9</bundle>
+      <bundle>mvn:org.gatherdata.gather-commons/org.gatherdata.commons.db.hsqldb/${gather-commons.version}</bundle>
+  </feature> 
+
+</features>

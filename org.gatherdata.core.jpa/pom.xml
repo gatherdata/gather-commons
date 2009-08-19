@@ -5,35 +5,26 @@
 
 	<parent>
 		<relativePath>../poms/compiled/</relativePath>
-		<groupId>org.gatherdata.gather-common.build
-		</groupId>
-		<artifactId>compiled-bundle-settings
-		</artifactId>
+		<groupId>org.gatherdata.gather-commons.build</groupId>
+		<artifactId>compiled-bundle-settings</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
 	<properties>
-		<bundle.symbolicName>org.gatherdata.core.jpa</bundle.symbolicName>
-		<bundle.namespace>org.gatherdata.core.jpa</bundle.namespace>
+		<bundle.symbolicName>org.gatherdata.commons.core.jpa</bundle.symbolicName>
+		<bundle.namespace>org.gatherdata.commons.core.jpa</bundle.namespace>
 	</properties>
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.gatherdata.gather-common</groupId>
-	<artifactId>org.gatherdata.core.jpa</artifactId>
+	<groupId>org.gatherdata.gather-commons</groupId>
+	<artifactId>org.gatherdata.commons.core.jpa</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
-	<name>gather-common - JPA model (library)</name>
+	<name>gather-commons - JPA model (library)</name>
 
 	<packaging>bundle</packaging>
 
 	<dependencies>
-		<!--
-			| uncomment to add all imported (non-local) bundles to your
-			compilation classpath <dependency> <type>pom</type>
-			<groupId>${parent.groupId}</groupId>
-			<artifactId>provision</artifactId> <optional>true</optional>
-			</dependency>
-		-->
 		<dependency>
 			<groupId>org.osgi</groupId>
 			<artifactId>osgi_R4_core</artifactId>
@@ -45,42 +36,28 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>org.gatherdata.gather-common
-			</groupId>
-			<artifactId>org.gatherdata.core</artifactId>
+			<groupId>org.gatherdata.gather-commons</groupId>
+			<artifactId>org.gatherdata.commons.core</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>javax.activation</groupId>
-			<artifactId>com.springsource.javax.activation
-			</artifactId>
-			<version>1.1.1</version>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>com.springsource.org.apache.commons.lang
-			</artifactId>
-			<version>2.4.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>com.springsource.org.apache.commons.codec
-			</artifactId>
-			<version>1.3.0</version>
-		</dependency>
+            <groupId>org.apache.servicemix.bundles</groupId>
+            <artifactId>org.apache.servicemix.bundles.commons-codec</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>javax.persistence</groupId>
-			<artifactId>com.springsource.javax.persistence
-			</artifactId>
+			<artifactId>com.springsource.javax.persistence</artifactId>
 			<version>1.0.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>javax.transaction</groupId>
-			<artifactId>com.springsource.javax.transaction
-			</artifactId>
-			<version>1.1.0</version>
-			<scope>test</scope>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-jta_1.1_spec</artifactId>
+            <scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>

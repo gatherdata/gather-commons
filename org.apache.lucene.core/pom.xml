@@ -3,7 +3,7 @@
 
   <parent>
     <relativePath>../poms/wrappers/</relativePath>
-    <groupId>org.gatherdata.gather-common.build</groupId>
+    <groupId>org.gatherdata.gather-commons.build</groupId>
     <artifactId>wrapper-bundle-settings</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
@@ -16,7 +16,7 @@
   </properties>
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.gatherdata.gather-common</groupId>
+  <groupId>org.gatherdata.gather-commons</groupId>
   <artifactId>org.apache.lucene.core</artifactId>
   <version>2.4.0-001</version>
 

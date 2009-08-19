@@ -1,0 +1,11 @@
+syntax: glob
+*.class
+*~
+.*
+
+syntax: regexp
+^\.settings/*
+^target/*
+[^/]+/target/
+^runner/*
+[^/]+/eclipse_config/*
