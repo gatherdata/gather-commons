@@ -21,7 +21,7 @@
 
 	<properties>
 		<bundle.symbolicName>org.gatherdata.commons.core</bundle.symbolicName>
-		<bundle.namespace>org.gatherdata.commons.core</bundle.namespace>
+		<bundle.namespace>org.gatherdata.commons</bundle.namespace>
 	</properties>
 
 	<dependencies>

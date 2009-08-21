@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface StorageService<ContentType extends Serializable> {
 
-    List<ContentType> getAll();
+    Iterable<ContentType> getAll();
     
     ContentType get(URI uid);
     
