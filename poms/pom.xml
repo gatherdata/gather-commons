@@ -84,6 +84,31 @@
               <artifactId>commons-lang</artifactId>
               <version>${commons-lang.version}</version>
           </dependency>
+          <dependency>
+              <groupId>org.ops4j</groupId>
+              <artifactId>peaberry</artifactId>
+              <version>${peaberry.version}</version>
+              <scope>provided</scope>
+          </dependency>
+          <dependency>
+              <groupId>org.ops4j.peaberry.dependencies</groupId>
+              <artifactId>guice</artifactId>
+              <version>2.0-SNAPSHOT</version>
+              <scope>provided</scope>
+          </dependency>
+          <dependency>
+              <groupId>org.apache.servicemix.bundles</groupId>
+              <artifactId>org.apache.servicemix.bundles.aopalliance</artifactId>
+              <version>1.0_1</version>
+              <scope>provided</scope>
+          </dependency>
+          <dependency>
+              <groupId>org.apache.geronimo.specs</groupId>
+              <artifactId>geronimo-jta_1.1_spec</artifactId>
+              <version>${geronimo.jta.version}</version>
+              <scope>provided</scope>
+          </dependency>
+
       </dependencies>
   </dependencyManagement>
 

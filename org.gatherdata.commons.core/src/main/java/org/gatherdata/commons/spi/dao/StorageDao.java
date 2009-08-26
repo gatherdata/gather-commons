@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.net.URI;
 import java.util.List;
 
+import javax.transaction.Transaction;
+
 
 /**
  * Generic interface for a DAO which supports persistence of content
@@ -11,6 +13,10 @@ import java.util.List;
  * @param <ContentType> type of content which can be persisted
  */
 public interface StorageDao<ContentType extends Serializable> {
+
+    void beginTransaction();
+    
+    void endTransaction();
 
     Iterable<ContentType> getAll();
     

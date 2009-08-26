@@ -1,35 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.gatherdata.gather-commons</groupId>
-	<artifactId>org.gatherdata.commons.core</artifactId>
-	<version>1.0-SNAPSHOT</version>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.gatherdata.gather-commons</groupId>
+    <artifactId>org.gatherdata.commons.core</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
-	<name>gather-commons - core (library)</name>
+    <name>gather-commons - core (library)</name>
 
-	<packaging>bundle</packaging>
+    <packaging>bundle</packaging>
 
-	<parent>
-		<relativePath>../poms/compiled/</relativePath>
-		<groupId>org.gatherdata.gather-commons.build</groupId>
-		<artifactId>compiled-bundle-settings</artifactId>
-		<version>1.0-SNAPSHOT</version>
-	</parent>
+    <parent>
+        <relativePath>../poms/compiled/</relativePath>
+        <groupId>org.gatherdata.gather-commons.build</groupId>
+        <artifactId>compiled-bundle-settings</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
-	<properties>
-		<bundle.symbolicName>org.gatherdata.commons.core</bundle.symbolicName>
-		<bundle.namespace>org.gatherdata.commons</bundle.namespace>
-	</properties>
+    <properties>
+        <bundle.symbolicName>org.gatherdata.commons.core</bundle.symbolicName>
+        <bundle.namespace>org.gatherdata.commons</bundle.namespace>
+    </properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.osgi</groupId>
-			<artifactId>osgi_R4_core</artifactId>
-			<optional>true</optional>
-		</dependency>
+    <dependencies>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi_R4_core</artifactId>
+            <optional>true</optional>
+        </dependency>
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
@@ -43,16 +42,20 @@
             <artifactId>org.apache.servicemix.bundles.joda-time</artifactId>
         </dependency>
         <dependency>
-			<groupId>org.osgi</groupId>
-			<artifactId>osgi_R4_compendium</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.5</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-jta_1.1_spec</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi_R4_compendium</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.5</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 </project>
