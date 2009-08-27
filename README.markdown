@@ -9,13 +9,15 @@ Dependencies
 Building
 --------
 1. Build neo4j apoc-bundle
-    svn co https://svn.neo4j.org/laboratory/components/apoc-bundle
-    cd apoc-bundle
-    mvn clean install
+
+    `svn co https://svn.neo4j.org/laboratory/components/apoc-bundle`   
+    `cd apoc-bundle`  
+    `mvn clean install`  
 
 2. Build gather-commons
-    cd gather-commons
-    mvn clean install
+
+    `cd gather-commons`   
+    `mvn clean install`
 
 
 Running
