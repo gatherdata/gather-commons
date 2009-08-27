@@ -2,11 +2,20 @@ gather-commons
 ==============
 Core infrastructure and some generically useful libraries.
 
+Dependencies
+------------
+* neo4j apoc-bundle - A package of OSGi-friendly Neo4j Components
+
 Building
 --------
-Requires maven2 and java 1.5+
+1. Build neo4j apoc-bundle
+    svn co https://svn.neo4j.org/laboratory/components/apoc-bundle
+    cd apoc-bundle
+    mvn clean install
 
-`mvn clean install`
+2. Build gather-commons
+    cd gather-commons
+    mvn clean install
 
 
 Running
