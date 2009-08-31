@@ -106,8 +106,33 @@
               <version>${geronimo.jta.version}</version>
               <scope>provided</scope>
           </dependency>
+          <dependency>
+              <groupId>junit</groupId>
+              <artifactId>junit</artifactId>
+              <version>${junit.version}</version>
+              <scope>test</scope>
+          </dependency>
+          <dependency>
+              <groupId>junit</groupId>
+              <artifactId>junit-dep</artifactId>
+              <version>${junit.version}</version>
+              <scope>test</scope>
+          </dependency>
+          <dependency>
+              <groupId>org.easymock</groupId>
+              <artifactId>com.springsource.org.easymock</artifactId>
+              <version>${easymock.version}</version>
+              <scope>test</scope>
+          </dependency>
+          <dependency>
+              <groupId>org.hamcrest</groupId>
+              <artifactId>hamcrest-all</artifactId>
+              <version>${hamcrest.version}</version>
+              <scope>test</scope>
+          </dependency>
 
       </dependencies>
+
   </dependencyManagement>
 
 </project>

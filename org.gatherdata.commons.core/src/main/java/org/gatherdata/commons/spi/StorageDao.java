@@ -4,15 +4,22 @@ import java.io.Serializable;
 import java.net.URI;
 import java.util.List;
 
+import javax.transaction.Transaction;
+
 import org.gatherdata.commons.model.UniqueEntity;
 
+
 /**
- * Interface for services which can store content. 
- *
- * @param <ContentType> the content type handled by this storage
+ * Generic interface for a DAO which supports persistence of content
+ * 
+ * @param <ContentType> type of content which can be persisted
  */
-public interface StorageService<ContentType extends UniqueEntity> {
+public interface StorageDao<ContentType extends UniqueEntity> {
+
+    void beginTransaction();
     
+    void endTransaction();
+
     Iterable<ContentType> getAll();
     
     ContentType get(URI uid);
@@ -22,5 +29,5 @@ public interface StorageService<ContentType extends UniqueEntity> {
     ContentType save(ContentType instance);
     
     void remove(URI uid);
-    
+
 }
