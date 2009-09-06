@@ -15,7 +15,8 @@
     <feature name="google-peaberry" version="${peaberry.version}">
         <bundle>mvn:org.ops4j/peaberry/${peaberry.version}</bundle>
         <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aopalliance/${aopalliance.version}</bundle>
-        <bundle>mvn:org.ops4j.peaberry.dependencies/guice/2.0-SNAPSHOT</bundle>
+        <bundle>mvn:org.ops4j.peaberry.dependencies/guice/${guice.version}</bundle>
+        <bundle>mvn:org.gatherdata.gather-commons/org.ops4j.peaberry.activation/${peaberry-activation.version}</bundle>
     </feature>
 
     <feature name="eclipselink" version="${eclipselink.version}">
