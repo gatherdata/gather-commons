@@ -2,9 +2,13 @@ package org.gatherdata.commons.model;
 
 import java.net.URI;
 
+import org.joda.time.DateTime;
+
 public class MutableEntity implements UniqueEntity {
 
     protected URI uid;
+    
+    protected DateTime dateCreated;
     
     public URI getUid() {
         return this.uid;
@@ -14,4 +18,11 @@ public class MutableEntity implements UniqueEntity {
         this.uid = uid;
     }
 
+    public DateTime getDateCreated() {
+        return this.dateCreated;
+    }
+    
+    public void setDateCreated(DateTime dateCreated) {
+        this.dateCreated = dateCreated;
+    }
 }

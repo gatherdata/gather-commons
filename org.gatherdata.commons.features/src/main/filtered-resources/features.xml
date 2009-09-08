@@ -10,6 +10,7 @@
     <feature name="neo4j-service" version="${neo4j.neo.version}">
         <feature>neo4j-dependencies</feature>
         <bundle>mvn:org.gatherdata.gather-commons/org.gatherdata.commons.db.neo4j/${gather-commons.version}</bundle>
+        <bundle>mvn:org.gatherdata.gather-commons/org.gatherdata.commons.model.neo4j/${gather-commons.version}</bundle>
     </feature>
 
     <feature name="google-peaberry" version="${peaberry.version}">

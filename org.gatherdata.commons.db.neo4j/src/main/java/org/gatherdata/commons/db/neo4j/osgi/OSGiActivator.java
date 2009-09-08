@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import org.gatherdata.commons.db.neo4j.NeoServices;
 import org.gatherdata.commons.db.neo4j.internal.NeoServicesImpl;
 import org.neo4j.api.core.EmbeddedNeo;
+import org.neo4j.api.core.NeoService;
 import org.neo4j.util.index.IndexService;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -26,9 +27,8 @@ public final class OSGiActivator implements BundleActivator {
      */
     public void start(BundleContext bc) throws Exception {
 
-        Dictionary props = new Properties();
-
-        neo = new NeoServicesImpl(new EmbeddedNeo("neo"));
+        NeoService innerNeo = new EmbeddedNeo("neo");
+        neo = new NeoServicesImpl(innerNeo);
         IndexService indexService = neo.addLuceneIndexService();
         
         if (indexService == null) {
