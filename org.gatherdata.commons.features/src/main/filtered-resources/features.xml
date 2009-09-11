@@ -47,4 +47,10 @@
         <bundle>mvn:org.gatherdata.gather-commons/org.gatherdata.commons.db.hsqldb/${gather-commons.version}</bundle>
     </feature> 
 
+    <feature name="gather-commons.db4o" version="${db4o.version}">
+        <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.ant/${ant.version}</bundle>
+        <bundle>mvn:org.gatherdata.gather-commons/org.gatherdata.commons.db.db4o/${db4o.version}</bundle>
+        <bundle>mvn:org.gatherdata.gather-commons/org.gatherdata.commons.db.db4o.api/${db4o.version}</bundle>
+    </feature>
+
 </features>

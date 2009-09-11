@@ -41,6 +41,8 @@
     <neo4j.remote-neo.version>0.2</neo4j.remote-neo.version>
     <neo4j.neo-utils.version>1.0-b9</neo4j.neo-utils.version>
     <neo4j.neo-component-commons.version>0.2</neo4j.neo-component-commons.version>
+    <db4o.version>7.11-SNAPSHOT</db4o.version>
+    <ant.version>1.7.0_1</ant.version>
   </properties>
 
   <packaging>pom</packaging>
@@ -57,6 +59,9 @@
     <module>org.ops4j.peaberry.activation</module>
     <module>org.gatherdata.commons.example</module>
     <module>org.gatherdata.commons.model.neo4j</module>
+    <module>org.gatherdata.commons.db.db4o</module>
+    <module>org.gatherdata.commons.db.db4o.api</module>
+    <module>org.gatherdata.commons.db.db4o.example</module>
   </modules>
 
   <repositories>
@@ -97,7 +102,11 @@
           <noDependencies>true</noDependencies>
           <provision>
             <param>scan-features:mvn:org.neo4j.apoc-bundle/org.neo4j.neo.karaf/1.0-SNAPSHOT/xml/features!/neo4j-meta</param>
-            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0-SNAPSHOT/xml/features!/gather-core,gather-hsqldb,neo4j-dependencies,eclipselink</param>
+            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0-SNAPSHOT/xml/features!/gather-core</param>
+            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0-SNAPSHOT/xml/features!/gather-hsqldb</param>
+            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0-SNAPSHOT/xml/features!/neo4j-service</param>
+            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0-SNAPSHOT/xml/features!/eclipselink</param>
+            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0-SNAPSHOT/xml/features!/gather-commons.db4o</param>
           </provision>
         </configuration>
       </plugin>

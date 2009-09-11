@@ -1,0 +1,56 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.0
+Created-By: 11.3-b02 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+Bundle-Name: db4o OSGI
+Bundle-SymbolicName: db4o_osgi
+Bundle-Version: 7.11.110.13604
+Bundle-Activator: com.db4o.osgi.Db4oActivator
+Bundle-Vendor: db4objects, Inc.
+Import-Package: org.osgi.framework;version="1.3.0"
+Bundle-ClassPath: .,lib/db4o-7.11.110.13604-all-java1.2.jar
+Bundle-ActivationPolicy: lazy 
+Export-Package: EDU.purdue.cs.bloat.benchmark,EDU.purdue.cs.bloat.cfg,
+ EDU.purdue.cs.bloat.codegen,EDU.purdue.cs.bloat.context,EDU.purdue.cs
+ .bloat.decorate,EDU.purdue.cs.bloat.diva,EDU.purdue.cs.bloat.dump,EDU
+ .purdue.cs.bloat.editor,EDU.purdue.cs.bloat.file,EDU.purdue.cs.bloat.
+ inline,EDU.purdue.cs.bloat.optimize,EDU.purdue.cs.bloat.reflect,EDU.p
+ urdue.cs.bloat.shrink,EDU.purdue.cs.bloat.ssa,EDU.purdue.cs.bloat.str
+ ip,EDU.purdue.cs.bloat.tbaa,EDU.purdue.cs.bloat.tools,EDU.purdue.cs.b
+ loat.trans,EDU.purdue.cs.bloat.tree,EDU.purdue.cs.bloat.util,com.db4o
+ ,com.db4o.activation,com.db4o.collections,com.db4o.config,com.db4o.co
+ nstraints,com.db4o.defragment,com.db4o.diagnostic,com.db4o.events,com
+ .db4o.ext,com.db4o.foundation,com.db4o.internal,com.db4o.io,com.db4o.
+ marshall,com.db4o.messaging,com.db4o.query,com.db4o.reflect,com.db4o.
+ replication,com.db4o.ta,com.db4o.typehandlers,com.db4o.types,com.db4o
+ .config.encoding,com.db4o.foundation.io,com.db4o.internal.activation,
+ com.db4o.internal.btree,com.db4o.internal.caching,com.db4o.internal.c
+ allbacks,com.db4o.internal.classindex,com.db4o.internal.collections,c
+ om.db4o.internal.config,com.db4o.internal.convert,com.db4o.internal.d
+ elete,com.db4o.internal.diagnostic,com.db4o.internal.encoding,com.db4
+ o.internal.events,com.db4o.internal.fieldindex,com.db4o.internal.file
+ header,com.db4o.internal.freespace,com.db4o.internal.handlers,com.db4
+ o.internal.io,com.db4o.internal.mapping,com.db4o.internal.marshall,co
+ m.db4o.internal.metadata,com.db4o.internal.query,com.db4o.internal.re
+ flect,com.db4o.internal.replication,com.db4o.internal.slots,com.db4o.
+ internal.threading,com.db4o.internal.transactionlog,com.db4o.internal
+ .weakref,com.db4o.reflect.core,com.db4o.reflect.generic,com.db4o.refl
+ ect.jdk,com.db4o.typehandlers.internal,com.db4o.internal.btree.algebr
+ a,com.db4o.internal.convert.conversions,com.db4o.internal.handlers.ar
+ ray,com.db4o.internal.handlers.net,com.db4o.internal.handlers.version
+ s,com.db4o.internal.query.processor,com.db4o.internal.query.result,co
+ m.db4o.internal.reflect.generic,com.db4o.cs,com.db4o.cs.caching,com.d
+ b4o.cs.config,com.db4o.cs.internal,com.db4o.foundation.network,com.db
+ 4o.cs.internal.caching,com.db4o.cs.internal.config,com.db4o.cs.intern
+ al.messages,com.db4o.cs.internal.objectexchange,com.db4o.cluster,com.
+ db4o.config,com.db4o.io,com.db4o.tools,com.db4o.internal.cluster,com.
+ db4o.internal.handlers,com.db4o.reflect.self,com.db4o.instrumentation
+ .ant,com.db4o.instrumentation.api,com.db4o.instrumentation.bloat,com.
+ db4o.instrumentation.classfilter,com.db4o.instrumentation.core,com.db
+ 4o.instrumentation.file,com.db4o.instrumentation.main,com.db4o.instru
+ mentation.util,com.db4o.nativequery,com.db4o.nativequery.analysis,com
+ .db4o.nativequery.expr,com.db4o.nativequery.instrumentation,com.db4o.
+ nativequery.main,com.db4o.nativequery.optimization,com.db4o.nativeque
+ ry.expr.build,com.db4o.nativequery.expr.cmp,com.db4o.nativequery.expr
+ .cmp.operand,com.db4o.enhance,com.db4o.osgi
+

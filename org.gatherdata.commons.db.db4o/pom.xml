@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <parent>
+    <relativePath>../poms/compiled/</relativePath>
+    <groupId>org.gatherdata.gather-commons.build</groupId>
+    <artifactId>compiled-bundle-settings</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <properties>
+    <bundle.symbolicName>org.gatherdata.commons.db.db4o</bundle.symbolicName>
+    <bundle.namespace>org.gatherdata.commons.db.db4o</bundle.namespace>
+  </properties>
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.gatherdata.gather-commons</groupId>
+  <artifactId>org.gatherdata.commons.db.db4o</artifactId>
+  <version>${db4o.version}</version>
+
+  <name>gather-commons - db4o osgi</name>
+
+  <packaging>jar</packaging>
+
+  <build>
+      <resources>
+          <resource>
+              <directory>src/main/classes</directory>
+          </resource>
+      </resources>
+      <plugins>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-jar-plugin</artifactId>
+              <configuration>
+                  <archive>
+                      <manifestFile>src/main/classes/META-INF/MANIFEST.MF</manifestFile>
+                  </archive>
+              </configuration>
+          </plugin>
+      </plugins>
+  </build>
+
+</project>
