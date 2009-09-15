@@ -1,8 +1,14 @@
 package org.gatherdata.commons.db.db4o.example;
 
+import org.joda.time.DateTime;
+
 public class Pilot {
     private String name;
-    private int points;  
+    private int points;
+    
+    private transient DateTime lastUpdate;
+    
+    private long lastUpdateMillis;
     
     public Pilot(String name,int points) {
         this.name=name;
@@ -15,6 +21,7 @@ public class Pilot {
     
     public void addPoints(int points) {
         this.points+=points;
+        setLastUpdate(new DateTime());
     }
     
     public String getName() {
@@ -22,7 +29,27 @@ public class Pilot {
     }
     
     public String toString() {
-        return name+"/"+points;
+        return name+"/"+points + " (" + getLastUpdate() + ")";
     }
 
+    public DateTime getLastUpdate() {
+        if (lastUpdate == null) {
+            lastUpdate = new DateTime(lastUpdateMillis);
+        }
+        return lastUpdate;
+    }
+    
+    public void setLastUpdate(DateTime lastUpdate) {
+        this.lastUpdate = lastUpdate;
+        this.lastUpdateMillis = lastUpdate.getMillis();
+    }
+    
+    public long getLastUpdateMillis() {
+        return lastUpdateMillis;
+    }
+
+    public void setLastUpdateMillis(long millis) {
+        this.lastUpdateMillis = millis;
+        this.lastUpdate = null;
+    }
 }

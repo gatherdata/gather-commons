@@ -6,14 +6,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import javax.swing.filechooser.FileSystemView;
-
+import org.gatherdata.commons.db.db4o.DateTimeHandler;
+import org.gatherdata.commons.db.db4o.DateTimeHandlerPredicate;
 import org.gatherdata.commons.db.db4o.example.Pilot;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
+import com.db4o.config.Configuration;
 import com.db4o.osgi.Db4oService;
 
 /**
@@ -26,21 +27,24 @@ public final class ExampleDb4oAccess {
         ServiceReference sRef = bc.getServiceReference(Db4oService.class.getName());
         Db4oService dbs = (Db4oService) bc.getService(sRef);
 
-        try {
-            FileSystemView.getFileSystemView().createNewFolder(new File("db4o"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        new File("db4o").mkdir();
         
-        ObjectContainer db = dbs.openFile("db4o/tutorial.osgi");
+        Configuration config = dbs.newConfiguration();
+        config.registerTypeHandler(new DateTimeHandlerPredicate(), new DateTimeHandler());
+        ObjectContainer db = dbs.openFile(config, "db4o/tutorial.osgi");
 
         try {
             storeFirstPilot(db);
             storeSecondPilot(db);
+            System.out.println("retrieveAllPilots...");
             retrieveAllPilots(db);
+            System.out.println("retrievePilotByName...");
             retrievePilotByName(db);
+            System.out.println("retrievePilotByExactPoints...");
             retrievePilotByExactPoints(db);
+            System.out.println("updatePilot...");
             updatePilot(db);
+            System.out.println("delete pilots...");
             deleteFirstPilotByName(db);
             deleteSecondPilotByName(db);
         } finally {

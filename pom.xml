@@ -31,7 +31,7 @@
     <commons-codec.version>1.2_1</commons-codec.version>
     <commons-lang.version>2.4</commons-lang.version>
     <geronimo.jta.version>1.1.1</geronimo.jta.version>
-    <eclipselink.version>2.0.0-M6</eclipselink.version>
+    <eclipselink.version>1.1.2</eclipselink.version>
     <junit.version>4.5</junit.version>
     <hamcrest.version>1.1</hamcrest.version>
     <easymock.version>2.3.0</easymock.version>
@@ -41,7 +41,7 @@
     <neo4j.remote-neo.version>0.2</neo4j.remote-neo.version>
     <neo4j.neo-utils.version>1.0-b9</neo4j.neo-utils.version>
     <neo4j.neo-component-commons.version>0.2</neo4j.neo-component-commons.version>
-    <db4o.version>7.11-SNAPSHOT</db4o.version>
+    <db4o.version>7.11</db4o.version>
     <ant.version>1.7.0_1</ant.version>
   </properties>
 
@@ -59,9 +59,10 @@
     <module>org.ops4j.peaberry.activation</module>
     <module>org.gatherdata.commons.example</module>
     <module>org.gatherdata.commons.model.neo4j</module>
-    <module>org.gatherdata.commons.db.db4o</module>
+    <module>org.gatherdata.commons.db.db4o.osgi</module>
     <module>org.gatherdata.commons.db.db4o.api</module>
     <module>org.gatherdata.commons.db.db4o.example</module>
+    <module>org.gatherdata.commons.db.db4o</module>
   </modules>
 
   <repositories>
