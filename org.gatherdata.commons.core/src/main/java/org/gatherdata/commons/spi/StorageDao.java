@@ -20,7 +20,7 @@ public interface StorageDao<ContentType extends UniqueEntity> {
     
     void endTransaction();
 
-    Iterable<ContentType> getAll();
+    Iterable<? extends ContentType> getAll();
     
     ContentType get(URI uid);
     

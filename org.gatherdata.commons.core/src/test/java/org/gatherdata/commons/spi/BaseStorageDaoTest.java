@@ -89,7 +89,7 @@ public abstract class BaseStorageDaoTest<EntityType extends UniqueEntity, DaoTyp
         }
         
         beginTransaction();
-        Iterable<EntityType> allEntitiesList = dao.getAll();
+        Iterable<EntityType> allEntitiesList = (Iterable<EntityType>) dao.getAll();
         assertThat(allEntitiesList, containsAll(entitiesToSave));
         endTransaction();
     }
@@ -137,7 +137,7 @@ public abstract class BaseStorageDaoTest<EntityType extends UniqueEntity, DaoTyp
         
         assertFalse(dao.exists(entityToRemove.getUid()));
 
-        Iterable<EntityType> allEntitiesList = dao.getAll();
+        Iterable<EntityType> allEntitiesList = (Iterable<EntityType>) dao.getAll();
         assertThat(allEntitiesList, not(containsAll(entitiesToSave)) );
     }
 

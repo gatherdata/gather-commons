@@ -13,7 +13,7 @@ import org.gatherdata.commons.model.UniqueEntity;
  */
 public interface StorageService<ContentType extends UniqueEntity> {
     
-    Iterable<ContentType> getAll();
+    Iterable<? extends ContentType> getAll();
     
     ContentType get(URI uid);
     
