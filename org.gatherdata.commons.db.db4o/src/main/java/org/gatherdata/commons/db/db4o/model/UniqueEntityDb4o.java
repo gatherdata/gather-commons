@@ -35,7 +35,18 @@ public class UniqueEntityDb4o implements UniqueEntity {
     
     public void setUid(URI uid) {
         this.uid = uid;
-    }    
+    }
+    
+    public UniqueEntityDb4o copy(UniqueEntity template) {
+        if (template != null) {
+            setUid(template.getUid());
+            DateTime templateDateCreated = template.getDateCreated();
+            if (templateDateCreated != null) {
+                setDateCreatedMillis(templateDateCreated.getMillis());
+            }
+        }
+        return this;
+    }
 
     @Override
     public boolean equals(Object obj) {

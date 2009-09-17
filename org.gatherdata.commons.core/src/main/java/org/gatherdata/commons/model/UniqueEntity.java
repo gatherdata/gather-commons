@@ -10,5 +10,5 @@ public interface UniqueEntity extends Serializable {
     public URI getUid();
     
     public DateTime getDateCreated();
-
+   
 }

@@ -21,4 +21,12 @@ public class MutableDescribedEntity extends MutableEntity implements DescribedEn
         this.description = description;
     }
 
+    public void copy(DescribedEntity template) {
+        super.copy(template);
+        if (template != null) {
+            setName(template.getName());
+            setDescription(template.getDescription());
+        }
+    }
+    
 }
