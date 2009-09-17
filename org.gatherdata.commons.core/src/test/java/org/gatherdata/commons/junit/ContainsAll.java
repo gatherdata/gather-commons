@@ -13,9 +13,12 @@ public class ContainsAll<ItemType> extends TypeSafeMatcher<Iterable<ItemType>> {
     private Vector<ItemType> requiredVector;
 
     private String failureReason = "";
+
+	private int initialSize;
     
     public ContainsAll(Collection<ItemType> requiredItems) {
         this.requiredVector =  new Vector<ItemType>(requiredItems);
+        this.initialSize = requiredVector.size();
     }
 
     @Override
@@ -28,19 +31,22 @@ public class ContainsAll<ItemType> extends TypeSafeMatcher<Iterable<ItemType>> {
             failureReason = "actual is not Iterable<>";
             return false;
         }
+        
         for (ItemType item : (Iterable<ItemType>)availableItems) {
             if (requiredVector.contains(item)) {
                 requiredVector.remove(item);
             }
         }
-        if (!requiredVector.isEmpty()) failureReason = "does not contain all items (perhaps hash and equals are different)";
+        if (!requiredVector.isEmpty()) {
+        	failureReason = requiredVector.size() + " items not found (perhaps hash and equals are different)";
+        }
         
         return requiredVector.isEmpty();
     }
 
     public void describeTo(Description description) {
-        description.appendText("expected all items");
-        description.appendText(failureReason);
+        description.appendText("expected " + initialSize + " items.");
+        description.appendText(" " + failureReason);
     }
         
     @Factory

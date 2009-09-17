@@ -82,11 +82,13 @@ public abstract class BaseStorageDaoTest<EntityType extends UniqueEntity, DaoTyp
         final int EXPECTED_NUMBER_OF_ENTITIES = new Random().nextInt(100);
         List<EntityType> entitiesToSave = new ArrayList<EntityType>();
         
+        beginTransaction();
         for (int i=0; i< EXPECTED_NUMBER_OF_ENTITIES; i++) {
             EntityType entityToSave = createMockEntity();
             entitiesToSave.add(entityToSave);
             dao.save(entityToSave);
         }
+        endTransaction();
         
         beginTransaction();
         Iterable<EntityType> allEntitiesList = (Iterable<EntityType>) dao.getAll();
