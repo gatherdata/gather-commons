@@ -90,6 +90,8 @@ public abstract class BaseStorageDaoTest<EntityType extends UniqueEntity, DaoTyp
         }
         endTransaction();
         
+        assertThat(dao.getCount(), equalTo(EXPECTED_NUMBER_OF_ENTITIES));
+        
         beginTransaction();
         Iterable<EntityType> allEntitiesList = (Iterable<EntityType>) dao.getAll();
         assertThat(allEntitiesList, containsAll(entitiesToSave));

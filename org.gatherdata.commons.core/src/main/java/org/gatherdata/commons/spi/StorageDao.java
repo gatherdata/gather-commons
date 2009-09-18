@@ -22,6 +22,8 @@ public interface StorageDao<ContentType extends UniqueEntity> {
 
     Iterable<? extends ContentType> getAll();
     
+    int getCount();
+    
     ContentType get(URI uid);
     
     boolean exists(URI uid);

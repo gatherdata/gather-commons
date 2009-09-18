@@ -12,9 +12,10 @@ public class ContainsAll<ItemType> extends TypeSafeMatcher<Iterable<ItemType>> {
 
     private Vector<ItemType> requiredVector;
 
-    private String failureReason = "";
+    private StringBuffer failureReason = new StringBuffer();
 
-	private int initialSize;
+	private int initialSize = 0;
+	private int availableSize = 0;
     
     public ContainsAll(Collection<ItemType> requiredItems) {
         this.requiredVector =  new Vector<ItemType>(requiredItems);
@@ -24,29 +25,33 @@ public class ContainsAll<ItemType> extends TypeSafeMatcher<Iterable<ItemType>> {
     @Override
     public boolean matchesSafely(Iterable<ItemType> availableItems) {
         if (availableItems == null) {
-            failureReason = "actual is null";
+            failureReason.append("actual is null.");
             return false;
         }
         if (!(availableItems instanceof Iterable<?>)) {
-            failureReason = "actual is not Iterable<>";
+            failureReason.append("actual is not Iterable<>.");
             return false;
         }
         
         for (ItemType item : (Iterable<ItemType>)availableItems) {
+            availableSize++;
             if (requiredVector.contains(item)) {
-                requiredVector.remove(item);
+                boolean wasRemoved = requiredVector.remove(item);
+                if (!wasRemoved) failureReason.append("failed to remove " + item);
+            } else {
+                failureReason.append("skipping item: " + item + "\n");
             }
         }
         if (!requiredVector.isEmpty()) {
-        	failureReason = requiredVector.size() + " items not found (perhaps hash and equals are different)";
+        	failureReason.append(requiredVector.size() + " items not found (perhaps hash and equals are different).");
         }
         
         return requiredVector.isEmpty();
     }
 
     public void describeTo(Description description) {
-        description.appendText("expected " + initialSize + " items.");
-        description.appendText(" " + failureReason);
+        description.appendText("expected " + initialSize + " items. Compared against " + availableSize + ".\n");
+        description.appendText(failureReason.toString());
     }
         
     @Factory
