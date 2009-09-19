@@ -1,6 +1,7 @@
 package org.gatherdata.commons.db.db4o.model;
 
 import java.net.URI;
+import java.net.URISyntaxException;
 
 import org.gatherdata.commons.model.UniqueEntity;
 import org.gatherdata.commons.model.UniqueEntitySupport;
@@ -12,7 +13,8 @@ public class UniqueEntityDb4o implements UniqueEntity {
 
     protected transient DateTime lazyDateCreated;
     protected long dateCreatedMillis;
-    protected URI uid;
+    protected transient URI lazyUid;
+    protected String uidAsAscii;
 
     public DateTime getDateCreated() {
         if (lazyDateCreated == null) {
@@ -30,16 +32,26 @@ public class UniqueEntityDb4o implements UniqueEntity {
     }
 
     public URI getUid() {
-        return this.uid;
+        if ((lazyUid == null) && (uidAsAscii != null)) {
+            try {
+                lazyUid = new URI(uidAsAscii);
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+        }
+        return this.lazyUid;
     }
     
-    public void setUid(URI uid) {
-        this.uid = uid;
+    public void setUid(String uidAsAscii) {
+        this.uidAsAscii = uidAsAscii;
     }
     
     public UniqueEntityDb4o copy(UniqueEntity template) {
         if (template != null) {
-            setUid(template.getUid());
+            URI templateUid = template.getUid();
+            if (templateUid != null) {
+                setUid(templateUid.toASCIIString());
+            }
             DateTime templateDateCreated = template.getDateCreated();
             if (templateDateCreated != null) {
                 setDateCreatedMillis(templateDateCreated.getMillis());
