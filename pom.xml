@@ -98,7 +98,7 @@
         <version>1.4</version>
         <configuration>
           <framework>felix</framework>
-          <profiles>log</profiles>
+          <profiles>config,log</profiles>
           <!-- noDependencies=true to force all required bundles to be part of a feature -->
           <noDependencies>true</noDependencies>
           <provision>
