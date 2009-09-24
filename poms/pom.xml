@@ -98,7 +98,7 @@
           <dependency>
               <groupId>org.apache.servicemix.bundles</groupId>
               <artifactId>org.apache.servicemix.bundles.aopalliance</artifactId>
-              <version>1.0_1</version>
+              <version>${aopalliance.version}</version>
               <scope>provided</scope>
           </dependency>
           <dependency>

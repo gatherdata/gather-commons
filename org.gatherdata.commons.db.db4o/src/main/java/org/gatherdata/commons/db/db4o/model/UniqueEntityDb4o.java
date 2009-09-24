@@ -4,7 +4,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import org.gatherdata.commons.model.UniqueEntity;
-import org.gatherdata.commons.model.UniqueEntitySupport;
+import org.gatherdata.commons.model.impl.UniqueEntitySupport;
 import org.joda.time.DateTime;
 
 public class UniqueEntityDb4o implements UniqueEntity {
