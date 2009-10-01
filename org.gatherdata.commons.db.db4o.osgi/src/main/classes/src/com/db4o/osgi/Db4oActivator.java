@@ -1,14 +1,9 @@
-/* Copyright (C) 2007  Versant Inc.  http://www.db4o.com */
-package com.db4o.osgi;
-
-import java.util.*;
-
-import org.osgi.framework.*;
-
 /**
- * db4o-osgi bundle BundleActivator implementation. 
- * Db4oActivator customizes the way the bundle is started
- * and stopped by the Framework.
+ * Copyright (C) 2009 AED <info@gatherdata.org>
+ *
+ * OSI compliant license pending.
+ *
+ * http://www.opensource.org/licenses
  */
 public class Db4oActivator implements BundleActivator {
 

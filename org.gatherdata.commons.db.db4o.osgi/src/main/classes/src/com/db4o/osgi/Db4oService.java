@@ -1,41 +1,10 @@
-/* Copyright (C) 2007  Versant Inc.  http://www.db4o.com */
-
-package com.db4o.osgi;
-
-import com.db4o.*;
-import com.db4o.config.*;
-import com.db4o.ext.*;
-
-
 /**
- * This API is registered as an OSGi service by the db4o_osgi bundle. It can be accessed like this:
- * <br><br>
- * ServiceReference serviceRef = _context.getServiceReference(Db4oService.class.getName());
- * <code>Db4oService db4oService = (Db4oService)bundleContext.getService(serviceRef);<br>
- * Configuration config = db4oService.newConfiguration();<br>
- * // ...<br>
- * ObjectContainer database = db4oService.openFile(config,fileName);</code>
- * <br><br>
- * Subsequently, the database reference can be handled like any other db4o instance.
- * <br><br>
- * The main purpose of this service is to configure an OSGi bundle aware reflector for
- * the database instance, so classes that are owned by the client bundle are accessible
- * to the db4o engine. To emulate this behavior when using db4o directly through the
- * exported packages of the db4o_osgi plugin, db4o can be configured like this:
- * <br><br>
- * <code>Configuration config = Db4o.newConfiguration();<br>
- * config.reflectWith(new JdkReflector(SomeData.class.getClassLoader()));<br>
- * // ...<br>
- * ObjectContainer database = Db4o.openFile(config,fileName);</code>
- * <br><br>
- * Access through the service is recommended over direct usage, though, as the service
- * may implement further OSGi specific features in the future.
- * 
- * @see Db4o
- * @see com.db4o.reflect.Reflector
- * @see "org.osgi.framework.BundleContext"
+ * Copyright (C) 2009 AED <info@gatherdata.org>
+ *
+ * OSI compliant license pending.
+ *
+ * http://www.opensource.org/licenses
  */
-
 public interface Db4oService {
 
 	/**

@@ -1,0 +1,6 @@
+Copyright (C) ${year} AED <${email}>
+
+OSI compliant license pending.
+
+http://www.opensource.org/licenses
+

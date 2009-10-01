@@ -50,8 +50,6 @@
   <modules>
     <module>poms</module>
     <module>org.gatherdata.commons.core</module>
-    <module>org.gatherdata.mock</module>
-    <module>org.gatherdata.commons.http</module>
     <module>org.gatherdata.commons.db.hsqldb</module>
     <module>org.gatherdata.commons.features</module>
     <module>org.apache.lucene.core</module>
@@ -111,40 +109,68 @@
                   </provision>
               </configuration>
           </plugin>
+          <plugin>
+              <inherited>false</inherited>
+              <groupId>com.google.code.maven-license-plugin</groupId>
+              <artifactId>maven-license-plugin</artifactId>
+              <version>1.4.0</version>
+              <configuration>
+                  <header>${basedir}/etc/header.txt</header>
+                  <failIfMissing>true</failIfMissing>
+                  <aggregate>true</aggregate>
+                  <properties>
+                      <owner>AED</owner>
+                      <year>2009</year>
+                      <email>info@gatherdata.org</email>
+                  </properties>
+                  <includes>
+                      <include>**/src/**/*.java</include>
+                  </includes>
+              </configuration>
+              <executions>
+                  <execution>
+                      <id>check-headers</id>
+                      <phase>verify</phase>
+                      <goals>
+                          <goal>check</goal>
+                      </goals>
+                  </execution>
+              </executions>
+          </plugin>
       </plugins>
   </build>
 
   <profiles>
-      <!-- integration testing profile -->
-      <profile>
-          <id>iandt</id>
-          <activation>
-              <property>
-                  <name>env-test</name>
-              </property>
-          </activation>
-          <modules>
-              <module>integration-tests</module>
-          </modules>
-      </profile>
+    <!-- integration testing profile -->
+    <profile>
+      <id>iandt</id>
+      <activation>
+        <property>
+          <name>env-test</name>
+        </property>
+      </activation>
+      <modules>
+        <module>integration-tests</module>
+      </modules>
+    </profile>
   </profiles>
 
   <distributionManagement>
-      <!-- 
+    <!-- 
           NOTE: this uses an internal server run by Andreas Kollegger
           which is ~not~ available on the public Internet. 
           Stay tuned for the AED hosted repository.
        -->
-      <repository>
-          <id>tembo.releases</id>
-          <name>Tembo Internal Releases</name>
-          <url>http://fatty-server.local.:8081/nexus/content/repositories/releases</url>
-      </repository>
-      <snapshotRepository>
-          <id>tembo.snapshots</id>
-          <name>Tembo Internal Snapshots</name>
-          <url>http://fatty-server.local.:8081/nexus/content/repositories/snapshots</url>
-      </snapshotRepository>
+    <repository>
+      <id>tembo.releases</id>
+      <name>Tembo Internal Releases</name>
+      <url>http://fatty-server.local.:8081/nexus/content/repositories/releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>tembo.snapshots</id>
+      <name>Tembo Internal Snapshots</name>
+      <url>http://fatty-server.local.:8081/nexus/content/repositories/snapshots</url>
+    </snapshotRepository>
   </distributionManagement>
 
 </project>

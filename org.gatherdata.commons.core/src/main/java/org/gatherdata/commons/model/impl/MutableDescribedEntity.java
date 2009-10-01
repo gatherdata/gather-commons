@@ -1,3 +1,10 @@
+/**
+ * Copyright (C) 2009 AED <info@gatherdata.org>
+ *
+ * OSI compliant license pending.
+ *
+ * http://www.opensource.org/licenses
+ */
 package org.gatherdata.commons.model.impl;
 
 import org.gatherdata.commons.model.DescribedEntity;
