@@ -12,6 +12,7 @@ import java.net.URISyntaxException;
 
 import org.gatherdata.commons.model.UniqueEntity;
 import org.gatherdata.commons.model.impl.UniqueEntitySupport;
+import org.gatherdata.commons.net.CbidFactory;
 import org.joda.time.DateTime;
 
 public class UniqueEntityDb4o implements UniqueEntity {
@@ -37,6 +38,12 @@ public class UniqueEntityDb4o implements UniqueEntity {
     public void setDateCreatedMillis(long dateCreatedMillis) {
         this.dateCreatedMillis = dateCreatedMillis;
     }
+    
+    public void setDateCreated(DateTime dateCreated) {
+        this.lazyDateCreated = dateCreated;
+        dateCreatedMillis = dateCreated.getMillis();
+    }
+    
 
     public URI getUid() {
         if ((lazyUid == null) && (uidAsAscii != null)) {
@@ -53,7 +60,30 @@ public class UniqueEntityDb4o implements UniqueEntity {
         this.uidAsAscii = uidAsAscii;
     }
     
-    public UniqueEntityDb4o copy(UniqueEntity template) {
+    public void setUid(URI uid) {
+        this.lazyUid = uid;
+        this.uidAsAscii = uid.toASCIIString();
+    }
+    
+    public void copy(UniqueEntity template) {
+        if (template != null) {
+            URI templateUid = template.getUid();
+            if (templateUid != null) {
+                setUid(templateUid.toASCIIString());
+            } else {
+                setUid((String)null);
+            }
+            DateTime templateDateCreated = template.getDateCreated();
+            if (templateDateCreated != null) {
+                setDateCreatedMillis(templateDateCreated.getMillis());
+            } else {
+                setDateCreatedMillis(0);
+            }
+        }
+        //return this;
+    }
+    
+    public void update(UniqueEntity template) {
         if (template != null) {
             URI templateUid = template.getUid();
             if (templateUid != null) {
@@ -64,9 +94,8 @@ public class UniqueEntityDb4o implements UniqueEntity {
                 setDateCreatedMillis(templateDateCreated.getMillis());
             }
         }
-        return this;
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof UniqueEntity)) return false;
@@ -77,6 +106,10 @@ public class UniqueEntityDb4o implements UniqueEntity {
     @Override
     public int hashCode() {
         return support.hashCode(this);
+    }
+
+    public URI selfIdentify() {
+        return CbidFactory.createCbid(getDateCreated().toString() + Integer.toHexString(hashCode()));
     }    
 
 }

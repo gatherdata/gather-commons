@@ -10,8 +10,10 @@ package org.gatherdata.commons.model.impl;
 import java.net.URI;
 
 import org.gatherdata.commons.model.UniqueEntity;
+import org.gatherdata.commons.net.CbidFactory;
 import org.joda.time.DateTime;
 
+@SuppressWarnings("serial")
 public class MutableEntity implements UniqueEntity {
 
     protected static final UniqueEntitySupport support = new UniqueEntitySupport();
@@ -36,12 +38,25 @@ public class MutableEntity implements UniqueEntity {
         this.dateCreated = dateCreated;
     }
     
-    public void copy(UniqueEntity template) {
+    public UniqueEntity copy(UniqueEntity template) {
         if (template != null) {
             this.setUid(template.getUid());
             this.setDateCreated(template.getDateCreated());
         }
+        return this;
     }
+
+    public UniqueEntity update(UniqueEntity template) {
+        if (template != null) {
+            if (template.getUid() != null) {
+                this.setUid(template.getUid());
+            }
+            if (template.getDateCreated() != null) {
+                this.setDateCreated(template.getDateCreated());
+            }
+        }
+        return this;
+    }  
     
     @Override
     public boolean equals(Object obj) {
@@ -53,6 +68,20 @@ public class MutableEntity implements UniqueEntity {
     @Override
     public int hashCode() {
         return support.hashCode(this);
-    }    
+    }
+
+    @SuppressWarnings("unchecked")
+    public MutableEntity workingCopy() {
+        return this;
+    }
+
+    public URI selfIdentify() {
+        if (dateCreated == null) {
+            dateCreated = new DateTime();
+        }
+        URI selfId = CbidFactory.createCbid(dateCreated.toString() + Integer.toHexString(hashCode()));
+        if (uid == null) uid = selfId;
+        return selfId;
+    }
 
 }

@@ -5,7 +5,7 @@
  *
  * http://www.opensource.org/licenses
  */
-package org.gatherdata.commons.model;
+package org.gatherdata.commons.util;
 
 import java.net.URI;
 import java.util.HashMap;
@@ -105,7 +105,7 @@ public class GenericReceipt implements Receipt {
 	}
 
 	/**
-	 * @see org.gatherdata.commons.model.Receipt#hashCode()
+	 * @see org.gatherdata.commons.util.Receipt#hashCode()
 	 */
 	public int hashCode() {
 		return this.uid.toASCIIString().hashCode(); 

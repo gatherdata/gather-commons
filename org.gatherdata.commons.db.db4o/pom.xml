@@ -25,6 +25,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi_R4_core</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
             <groupId>org.gatherdata.gather-commons</groupId>
             <artifactId>org.gatherdata.commons.core</artifactId>
             <version>${gather-commons.version}</version>

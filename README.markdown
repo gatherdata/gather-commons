@@ -19,6 +19,13 @@ Building
     `cd gather-commons`   
     `mvn clean install`
 
+### Notes
+
+The build uses [maven-license-plugin][1] to generate and verify
+that license header are present on all source code. So, when
+adding new files you'll need to run `mvn license:format` to
+add the headers.
+
 
 Running
 -------
@@ -28,3 +35,4 @@ as a sanity check that everything is provisioning properly.
 
 `mvn pax:provision`
 
+[1] http://code.google.com/p/maven-license-plugin/wiki/Configuration

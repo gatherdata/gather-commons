@@ -7,19 +7,22 @@
  */
 package org.gatherdata.commons.db.db4o.model;
 
+import java.net.URI;
+
 import org.gatherdata.commons.model.DescribedEntity;
 import org.gatherdata.commons.model.UniqueEntity;
+import org.gatherdata.commons.net.CbidFactory;
 import org.joda.time.DateTime;
 
 public class DescribedEntityDb4o extends UniqueEntityDb4o implements DescribedEntity {
 
     protected String description;
     protected String name;
-    
+
     public String getDescription() {
         return this.description;
     }
-    
+
     public void setDescription(String description) {
         this.description = description;
     }
@@ -31,7 +34,7 @@ public class DescribedEntityDb4o extends UniqueEntityDb4o implements DescribedEn
     public void setName(String name) {
         this.name = name;
     }
-    
+
     public DescribedEntityDb4o copy(DescribedEntity template) {
         if (template != null) {
             super.copy(template);
@@ -41,5 +44,8 @@ public class DescribedEntityDb4o extends UniqueEntityDb4o implements DescribedEn
         return this;
     }
 
+    public URI selfIdentify() {
+        return CbidFactory.createCbid(getDateCreated() + name + description + Integer.toHexString(hashCode()));
+    }
 
 }

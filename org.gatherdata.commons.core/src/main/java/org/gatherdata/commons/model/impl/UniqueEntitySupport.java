@@ -9,6 +9,7 @@ package org.gatherdata.commons.model.impl;
 
 import java.net.URI;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
 import org.gatherdata.commons.model.UniqueEntity;
 
 public class UniqueEntitySupport {
@@ -35,5 +36,16 @@ public class UniqueEntitySupport {
         return true;
     }
     
+    public static boolean deepEquals(UniqueEntity lhs, UniqueEntity rhs) {
+        boolean areEqual = true;
+        if (lhs != rhs) {
+            areEqual = new EqualsBuilder().append(lhs.getUid(), rhs.getUid())
+                .append(lhs.getDateCreated(), rhs.getDateCreated())
+                    .isEquals();
+        }
+        return areEqual;
+    }
+
+
     
 }

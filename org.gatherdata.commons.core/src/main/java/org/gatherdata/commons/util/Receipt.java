@@ -5,7 +5,7 @@
  *
  * http://www.opensource.org/licenses
  */
-package org.gatherdata.commons.model;
+package org.gatherdata.commons.util;
 
 import java.io.Serializable;
 import java.net.URI;

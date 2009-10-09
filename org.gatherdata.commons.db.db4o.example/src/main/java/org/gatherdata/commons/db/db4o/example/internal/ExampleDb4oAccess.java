@@ -23,6 +23,9 @@ import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
 import com.db4o.config.Configuration;
 import com.db4o.osgi.Db4oService;
+import com.db4o.reflect.generic.GenericReflector;
+import com.db4o.reflect.jdk.ClassLoaderJdkLoader;
+import com.db4o.reflect.jdk.JdkReflector;
 
 /**
  * Example use of the Db4oService
@@ -37,7 +40,17 @@ public final class ExampleDb4oAccess {
         new File("db4o").mkdir();
         
         Configuration config = dbs.newConfiguration();
-        config.registerTypeHandler(new DateTimeHandlerPredicate(), new DateTimeHandler());
+        
+//        JdkReflector jdk = new JdkReflector(new OSGiLoader(bc.getBundle(),
+//                new ClassLoaderJdkLoader(getClass().getClassLoader())));
+//        GenericReflector reflector = new GenericReflector(null, jdk);
+        
+        GenericReflector reflector = new GenericReflector(
+                null,
+                new JdkReflector(Thread.currentThread().getContextClassLoader()));
+
+
+        config.registerTypeHandler(new DateTimeHandlerPredicate(reflector), new DateTimeHandler());
         ObjectContainer db = dbs.openFile(config, "db4o/tutorial.osgi");
 
         try {

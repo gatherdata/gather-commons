@@ -7,9 +7,7 @@
  */
 package org.gatherdata.commons.spi;
 
-import java.io.Serializable;
 import java.net.URI;
-import java.util.List;
 
 import org.gatherdata.commons.model.UniqueEntity;
 
@@ -20,14 +18,21 @@ import org.gatherdata.commons.model.UniqueEntity;
  */
 public interface StorageService<ContentType extends UniqueEntity> {
     
-    Iterable<? extends ContentType> getAll();
+    public Iterable<? extends ContentType> getAll();
     
-    ContentType get(URI uid);
+    public ContentType get(URI uid);
     
-    boolean exists(URI uid);
+    public boolean exists(URI uid);
     
-    ContentType save(ContentType instance);
+    public ContentType save(ContentType instance);
     
-    void remove(URI uid);
+    public void remove(URI uid);
     
+    /**
+     * Save the non-null values from the entity.
+     * 
+     * @param toEntity
+     */
+    public void update(ContentType instance);
+
 }

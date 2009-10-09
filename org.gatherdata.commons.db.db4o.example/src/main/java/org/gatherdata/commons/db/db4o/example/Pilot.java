@@ -11,15 +11,13 @@ import org.joda.time.DateTime;
 
 public class Pilot {
     private String name;
-    private int points;
+    private int points = 0;
     
     private transient DateTime lastUpdate;
-    
-    private long lastUpdateMillis;
-    
+        
     public Pilot(String name,int points) {
         this.name=name;
-        this.points=points;
+        addPoints(points);
     }
         
     public int getPoints() {
@@ -40,23 +38,11 @@ public class Pilot {
     }
 
     public DateTime getLastUpdate() {
-        if (lastUpdate == null) {
-            lastUpdate = new DateTime(lastUpdateMillis);
-        }
         return lastUpdate;
     }
     
     public void setLastUpdate(DateTime lastUpdate) {
         this.lastUpdate = lastUpdate;
-        this.lastUpdateMillis = lastUpdate.getMillis();
     }
     
-    public long getLastUpdateMillis() {
-        return lastUpdateMillis;
-    }
-
-    public void setLastUpdateMillis(long millis) {
-        this.lastUpdateMillis = millis;
-        this.lastUpdate = null;
-    }
 }

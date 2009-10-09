@@ -17,5 +17,14 @@ public interface UniqueEntity extends Serializable {
     public URI getUid();
     
     public DateTime getDateCreated();
-   
+    
+    /**
+     * Generates an unique id for this entity,
+     * which the entity adopts if it does not
+     * already have a UID. 
+     * 
+     * @return self-identified uid
+     */
+    public URI selfIdentify();
+          
 }

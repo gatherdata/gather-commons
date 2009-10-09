@@ -59,7 +59,10 @@ public class DateTimeHandlerTest {
     public void startDatabase() {
         EmbeddedConfiguration config = Db4oEmbedded.newConfiguration();
 
-        TypeHandlerPredicate predicate = new DateTimeHandlerPredicate();
+        GenericReflector reflector = new GenericReflector(
+                null,
+                new JdkReflector(Thread.currentThread().getContextClassLoader()));
+        TypeHandlerPredicate predicate = new DateTimeHandlerPredicate(reflector);
         
         config.common().registerTypeHandler(predicate, new DateTimeHandler());
 
