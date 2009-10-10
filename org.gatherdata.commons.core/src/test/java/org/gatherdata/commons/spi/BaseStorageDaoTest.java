@@ -79,9 +79,14 @@ public abstract class BaseStorageDaoTest<EntityType extends UniqueEntity, DaoTyp
     @Test
     public void shouldAffirmThatASavedEntityExists() {
         EntityType entityToSave = createMockEntity();
+
+		beginTransaction();
         EntityType savedEntity = dao.save(entityToSave);
-        
+        endTransaction();
+		
+		beginTransaction();
         assertTrue(dao.exists(entityToSave.getUid()));
+		endTransaction();
     }
     
     @Test

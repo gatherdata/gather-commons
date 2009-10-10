@@ -23,11 +23,11 @@
 
     <feature name="eclipselink" version="${eclipselink.version}">
         <bundle>mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
-        <bundle>mvn:http://mirror.cc.columbia.edu/pub/software/eclipse/rt/eclipselink/maven.repo/!org.eclipse.persistence/javax.persistence/${eclipselink.version}</bundle>
-        <bundle>mvn:http://mirror.cc.columbia.edu/pub/software/eclipse/rt/eclipselink/maven.repo/!org.eclipse.persistence/org.eclipse.persistence.core/${eclipselink.version}</bundle>
-        <bundle>mvn:http://mirror.cc.columbia.edu/pub/software/eclipse/rt/eclipselink/maven.repo/!org.eclipse.persistence/org.eclipse.persistence.jpa/${eclipselink.version}</bundle>
-        <bundle>mvn:http://mirror.cc.columbia.edu/pub/software/eclipse/rt/eclipselink/maven.repo/!org.eclipse.persistence/org.eclipse.persistence.asm/${eclipselink.version}</bundle>
-        <bundle>mvn:http://mirror.cc.columbia.edu/pub/software/eclipse/rt/eclipselink/maven.repo/!org.eclipse.persistence/org.eclipse.persistence.antlr/${eclipselink.version}</bundle>
+        <bundle>mvn:org.eclipse.persistence/javax.persistence/${eclipselink.version}</bundle>
+        <bundle>mvn:org.eclipse.persistence/org.eclipse.persistence.core/${eclipselink.version}</bundle>
+        <bundle>mvn:org.eclipse.persistence/org.eclipse.persistence.jpa/${eclipselink.version}</bundle>
+        <bundle>mvn:org.eclipse.persistence/org.eclipse.persistence.asm/${eclipselink.version}</bundle>
+        <bundle>mvn:org.eclipse.persistence/org.eclipse.persistence.antlr/${eclipselink.version}</bundle>
     </feature>
 
     <feature name="gather-commons-dependencies" version="${gather-commons.version}">
