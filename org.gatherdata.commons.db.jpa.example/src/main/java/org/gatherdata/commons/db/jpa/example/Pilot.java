@@ -10,6 +10,7 @@ package org.gatherdata.commons.db.jpa.example;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 import org.joda.time.DateTime;
 
@@ -21,9 +22,13 @@ public class Pilot {
     private int id;
     
     private String name;
-    private int points = 0;
     
-    private transient DateTime lastUpdate;
+    private long lastUpdate = 0;
+    
+    @Transient
+    private DateTime lazyLastUpdate;
+    
+    private int points = 0;
     
     public Pilot() {
         ;
@@ -52,11 +57,15 @@ public class Pilot {
     }
 
     public DateTime getLastUpdate() {
-        return lastUpdate;
+        if (lazyLastUpdate == null) {
+            lazyLastUpdate = new DateTime(lastUpdate);
+        }
+        return lazyLastUpdate;
     }
     
     public void setLastUpdate(DateTime lastUpdate) {
-        this.lastUpdate = lastUpdate;
+        lazyLastUpdate = lastUpdate;
+        this.lastUpdate = lastUpdate.getMillis();
     }
     
 }
