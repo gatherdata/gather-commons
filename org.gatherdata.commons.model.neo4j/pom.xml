@@ -39,7 +39,11 @@
             <artifactId>org.apache.servicemix.bundles.joda-time</artifactId>
             <version>${joda-time.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.gatherdata.gather-commons</groupId>
+            <artifactId>org.gatherdata.commons.core</artifactId>
+            <version>${gather-commons.version}</version>
+        </dependency>
     </dependencies>
 
 </project>
