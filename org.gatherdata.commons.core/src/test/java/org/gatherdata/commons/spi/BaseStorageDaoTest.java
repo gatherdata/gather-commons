@@ -68,7 +68,9 @@ public abstract class BaseStorageDaoTest<EntityType extends UniqueEntity, DaoTyp
     @Test 
     public void shouldReturnEntityWhichIsEqualToSavedEntity() {
         EntityType entityToSave = createMockEntity();
+        beginTransaction();
         EntityType savedEntity = dao.save(entityToSave);
+        endTransaction();
         assertEquals(entityToSave, savedEntity);
     }
     
@@ -115,11 +117,13 @@ public abstract class BaseStorageDaoTest<EntityType extends UniqueEntity, DaoTyp
         final int EXPECTED_NUMBER_OF_ENTITIES = new Random().nextInt(100);
         List<EntityType> entitiesToSave = new ArrayList<EntityType>();
         
+        beginTransaction();
         for (int i=0; i< EXPECTED_NUMBER_OF_ENTITIES; i++) {
             EntityType entityToSave = createMockEntity();
             entitiesToSave.add(entityToSave);
             dao.save(entityToSave);
         }
+        endTransaction();
         
         beginTransaction();
         for (EntityType entityToRetrieve : entitiesToSave) {
@@ -139,6 +143,7 @@ public abstract class BaseStorageDaoTest<EntityType extends UniqueEntity, DaoTyp
         final int INDEX_OF_ENTITY_TO_REMOVE = new Random().nextInt(INITIAL_NUMBER_OF_ENTITIES);
         List<EntityType> entitiesToSave = new ArrayList<EntityType>();
         
+        beginTransaction();
         EntityType entityToRemove = null;
         for (int i=0; i< INITIAL_NUMBER_OF_ENTITIES; i++) {
             EntityType entityToSave = createMockEntity();
@@ -148,6 +153,7 @@ public abstract class BaseStorageDaoTest<EntityType extends UniqueEntity, DaoTyp
                 entityToRemove = entityToSave;
             }
         }
+        endTransaction();
         
         dao.remove(entityToRemove.getUid());
         

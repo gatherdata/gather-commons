@@ -38,7 +38,9 @@ public abstract class BaseStorageServiceTest<EntityType extends UniqueEntity, Da
         
         EntityType mockEntity = createMockEntity();
 
+        mockStorageDao.beginTransaction();
         expect(mockStorageDao.save(mockEntity)).andReturn(mockEntity);
+        mockStorageDao.endTransaction();
         
         replay(mockStorageDao);
         
