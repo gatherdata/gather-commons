@@ -21,6 +21,7 @@ import java.util.Calendar;
 
 import org.gatherdata.commons.util.GatherDateTimeParser;
 import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.joda.time.LocalDate;
 import org.junit.Test;
 
@@ -39,8 +40,8 @@ public class GatherDateTimeTest {
 	private static final String YEAR_MONTH_DAY_TIME_VALID_STRING = "2009-03-22-05:14";
 	private static final String YEAR_MONTH_DAY_TIME_INVALID_STRING = "19690107:05:32";
 	
-	private static final String ISO_VALID_STRING = "2009-10-11T14:23:59.343-04:00";
-	private static final String ISO_INVALID_STRING = "2009-10-11X14:23:59.343-04:00";
+	private static final String ISO_VALID_STRING = "2009-10-11T14:23:59.343Z";
+	private static final String ISO_INVALID_STRING = "2009-10-11X14:23:59.343Z";
 
 	@Test
 	public void shouldParseAsYearOnly() throws Exception {
@@ -63,7 +64,8 @@ public class GatherDateTimeTest {
 	
     @Test
     public void shouldParseAsIsoStandard() throws Exception {
-        DateTime parsedDateTime = GatherDateTimeParser.parseDateTime(ISO_VALID_STRING);
+        DateTime parsedDateTime = GatherDateTimeParser.parseDateTime(ISO_VALID_STRING)
+        	.toDateTime(DateTimeZone.UTC);
         assertThat(parsedDateTime.getYear(), is (2009));
         assertThat(parsedDateTime.getMonthOfYear(), is(10));
         assertThat(parsedDateTime.getDayOfMonth(), is(11));
