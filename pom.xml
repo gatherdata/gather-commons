@@ -162,20 +162,15 @@
     </profiles>
 
     <distributionManagement>
-    <!-- 
-          NOTE: this uses an internal server run by Andreas Kollegger
-          which is ~not~ available on the public Internet. 
-          Stay tuned for the AED hosted repository.
-       -->
         <repository>
-            <id>tembo.releases</id>
-            <name>Tembo Internal Releases</name>
-            <url>http://fatty-server.local.:8081/nexus/content/repositories/releases</url>
+            <id>gather.releases</id>
+            <name>GATHERdata Releases</name>
+            <url>http://repository.gatherdata.org/content/repositories/releases</url>
         </repository>
         <snapshotRepository>
-            <id>tembo.snapshots</id>
-            <name>Tembo Internal Snapshots</name>
-            <url>http://fatty-server.local.:8081/nexus/content/repositories/snapshots</url>
+            <id>gather.snapshots</id>
+            <name>GATHERdata Snapshots</name>
+            <url>http://repository.gatherdata.org/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
