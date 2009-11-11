@@ -27,6 +27,12 @@ as a sanity check that everything is provisioning properly.
 
 `mvn pax:provision`
 
+Next berries
+------------
+
+* [gather-archiver](http://github.com/gatherdata/gather-archiver)
+* [gather-alert](http://github.com/gatherdata/gather-alert)
+
 References
 ----------
 
