@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<features>
+	
+  <feature name="neo4j-core" version="${neo4j.neo.version}">
+    <bundle>mvn:org.neo4j/neo/${neo4j.neo.version}</bundle>
+    <bundle>mvn:org.neo4j/shell/${neo4j.shell.version}</bundle>
+    <bundle>mvn:org.neo4j/index-util/${neo4j.index-util.version}</bundle>
+    <bundle>mvn:org.neo4j/remote-neo/${neo4j.remote-neo.version}</bundle>
+  </feature>
+
+  <feature name="neo4j-core-services" version="${neo4j.neo.version}">
+    <feature>neo4j-core</feature>
+    <bundle>mvn:org.neo4j.apoc-bundle/org.neo4j.neo.osgi/1.0-SNAPSHOT</bundle>
+  </feature>
+
+  <feature name="neo4j-component-base" version="${neo4j.neo.version}">
+    <feature>neo4j-core</feature>
+    <bundle>mvn:org.neo4j/neo-utils/${neo4j.neo-utils.version}</bundle>
+    <bundle>mvn:org.neo4j/neo-component-commons/${neo4j.neo-component-commons.version}</bundle>
+  </feature>
+
+  <feature name="neo4j-meta" version="${neo4j.neo-meta.version}">
+    <feature>neo4j-component-base</feature>
+    <bundle>mvn:org.neo4j/neo-meta/${neo4j.neo-meta.version}</bundle>
+  </feature>
+
+</features>
