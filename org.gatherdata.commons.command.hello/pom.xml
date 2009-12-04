@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <description>A friendly OSGi shell command example.</description>
+    <url>http://wiki.github.com/gatherdata/gather-commons/command-hello</url>
+
+    <parent>
+        <relativePath>../poms/compiled/</relativePath>
+        <groupId>org.gatherdata.gather-commons.build</groupId>
+        <artifactId>compiled-bundle-settings</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <bundle.symbolicName>org.gatherdata.commons.command.hello</bundle.symbolicName>
+        <bundle.namespace>org.gatherdata.commons.command.hello</bundle.namespace>
+    </properties>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.gatherdata.gather-commons</groupId>
+    <artifactId>org.gatherdata.commons.command.hello</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>gather-commons :: Shell hello command</name>
+
+    <packaging>bundle</packaging>
+    <ciManagement>
+    </ciManagement>
+    <organization>
+    </organization>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi_R4_core</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi_R4_compendium</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.felix.karaf.shell</groupId>
+            <artifactId>org.apache.felix.karaf.shell.console</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
+
+</project>
