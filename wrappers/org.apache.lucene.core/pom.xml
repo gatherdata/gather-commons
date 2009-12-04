@@ -16,7 +16,7 @@
   </properties>
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.gatherdata.gather-commons</groupId>
+  <groupId>org.gatherdata.gather-commons.wrappers</groupId>
   <artifactId>org.apache.lucene.core</artifactId>
   <version>2.4.0-001</version>
 

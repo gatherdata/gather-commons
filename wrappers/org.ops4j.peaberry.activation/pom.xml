@@ -9,7 +9,7 @@
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.gatherdata.gather-commons</groupId>
+  <groupId>org.gatherdata.gather-commons.wrappers</groupId>
   <artifactId>org.ops4j.peaberry.activation</artifactId>
   <version>1.2-SNAPSHOT_1</version>
 
@@ -18,11 +18,11 @@
   <packaging>bundle</packaging>
 
   <build>
-      <resources>
-          <resource>
-              <directory>src/main/classes</directory>
-          </resource>
-      </resources>
+    <resources>
+      <resource>
+        <directory>src/main/classes</directory>
+      </resource>
+    </resources>
   </build>
 
 </project>
