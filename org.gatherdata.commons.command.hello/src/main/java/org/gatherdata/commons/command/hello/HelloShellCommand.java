@@ -7,17 +7,45 @@
  */
 package org.gatherdata.commons.command.hello;
 
+import java.util.List;
+
 import org.apache.felix.gogo.commands.Command;
 import org.apache.felix.gogo.commands.Option;
 import org.apache.felix.gogo.commands.Argument;
 import org.apache.felix.karaf.shell.console.OsgiCommandSupport;
+import org.osgi.service.command.CommandSession;
 
-@Command(scope = "test", name = "hello", description="Says hello")
+@Command(scope = "gather", name = "hello", description="Says hello")
 public class HelloShellCommand extends OsgiCommandSupport {
+
+    @Option(name = "--bye", aliases = {}, description = "Says good-bye instead.", required = false, multiValued = false)
+    private boolean sayGoodbye = false;
+
+    @Argument(index = 0, name = "subject", description="To whom the greeting should be addressed", required = false, multiValued = true)
+    private List<String> args;
 
     @Override
     protected Object doExecute() throws Exception {
-        System.out.println("Hello, OSGi Shell!");
+    	final String greeting = (sayGoodbye ? "Good-bye" : "Hello");
+    	String subject = "OSGi Shell";
+    	
+    	if (args != null) {
+            boolean first = true;
+            StringBuffer subjectFromArgs = new StringBuffer();
+            for (String arg : args) {
+                if (first) {
+                    first = false;
+                } else {
+                	subjectFromArgs.append(" ");
+                }
+                subjectFromArgs.append(arg);
+            }
+            subject = subjectFromArgs.toString();
+    	}
+    	
+		System.out.println(greeting + ", " + subject + "!");
         return null;
     }
+
+    
 }
