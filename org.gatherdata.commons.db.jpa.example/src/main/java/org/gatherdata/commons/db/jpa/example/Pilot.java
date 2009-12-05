@@ -10,16 +10,18 @@ package org.gatherdata.commons.db.jpa.example;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.joda.time.DateTime;
 
 @Entity
+@Table(name = "PILOT")
 public class Pilot {
     
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     
     private String name;
     

@@ -7,8 +7,33 @@
  */
 package org.gatherdata.commons.db.jpa.example;
 
+
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "CAR")
 public class Car {
+
+    @Id
+    @GeneratedValue
+    private long id;
+    
+    @Basic
+    @Column(name = "MODEL")
     private String model;
+    
+    @OneToOne 
     private Pilot pilot;
     
     public Car(String model) {

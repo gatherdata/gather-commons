@@ -1,7 +1,7 @@
-gather-commons db4o
-===================
+gather-commons :: db4o-osgi
+===========================
 This bundle is a mavenized packaging of the db4o osgi distribution, which
-provides a ServicFactory for creating databases on demand.
+provides a ServiceFactory for creating databases on demand.
 
 
 References

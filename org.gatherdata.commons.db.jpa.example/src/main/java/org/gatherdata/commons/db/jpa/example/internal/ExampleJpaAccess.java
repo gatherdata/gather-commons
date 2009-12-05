@@ -25,10 +25,10 @@ import org.osgi.framework.ServiceReference;
 
 
 /**
- * Example use of the Db4oService
+ * Example use of JPA
  * 
  */
-public final class ExampleDb4oAccess {
+public final class ExampleJpaAccess {
 
     ExampleDao dao = null;
     

@@ -27,10 +27,10 @@ public final class ExampleActivator
     {
         System.out.println( "STARTING org.gatherdata.commons.db.jpa.example" );
         
-        ExampleDb4oAccess exampleDb4oAccess = new ExampleDb4oAccess();
+        ExampleJpaAccess exampleAccess = new ExampleJpaAccess();
         
         ExampleDao dao = new ExampleDao();
-        exampleDb4oAccess.demo(dao);
+        exampleAccess.demo(dao);
         
     }
 
