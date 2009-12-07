@@ -11,6 +11,8 @@ public class Car {
     private String model;
     private Pilot pilot;
     
+    public Car() {;}
+    
     public Car(String model) {
         this.model=model;
         this.pilot=null;

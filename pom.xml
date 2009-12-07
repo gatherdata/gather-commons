@@ -9,7 +9,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.gatherdata</groupId>
   <artifactId>gather-commons</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.0</version>
 
   <name>gather-commons (project)</name>
 
@@ -22,7 +22,7 @@
     <org.osgi.service.http.port>8080</org.osgi.service.http.port>
     <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
     <!-- versions -->
-    <gather-commons.version>1.0-SNAPSHOT</gather-commons.version>
+    <gather-commons.version>1.0.0</gather-commons.version>
     <peaberry.version>1.1.1</peaberry.version>
     <peaberry-activation.version>1.2-SNAPSHOT_1</peaberry-activation.version>
     <guice.version>2.0-SNAPSHOT</guice.version>
@@ -50,13 +50,17 @@
 
   <modules>
     <module>poms</module>
-    <module>wrappers</module>
+
+    <!-- wrapped 3rd party libraries -->
+    <module>wrappers/org.apache.lucene.core</module>
+    <module>wrappers/org.ops4j.peaberry.activation</module>
+
     <module>org.gatherdata.commons.core</module>
+    <module>org.gatherdata.commons.example</module>
     <module>org.gatherdata.commons.db.hsqldb</module>
     <module>org.gatherdata.commons.features</module>
     <module>org.gatherdata.commons.features.neo</module>
     <module>org.gatherdata.commons.db.neo4j</module>
-    <module>org.gatherdata.commons.example</module>
     <module>org.gatherdata.commons.model.neo4j</module>
     <module>org.gatherdata.commons.db.db4o.api</module>
     <module>org.gatherdata.commons.db.db4o.osgi</module>
@@ -122,12 +126,12 @@
           <!-- noDependencies=true to force all required bundles to be part of a feature -->
           <noDependencies>true</noDependencies>
           <provision>
-            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features.neo/1.0-SNAPSHOT/xml/features!/neo4j-meta</param>
-            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0-SNAPSHOT/xml/features!/gather-core</param>
-            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0-SNAPSHOT/xml/features!/gather-hsqldb</param>
-            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0-SNAPSHOT/xml/features!/neo4j-service</param>
-            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0-SNAPSHOT/xml/features!/eclipselink</param>
-            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0-SNAPSHOT/xml/features!/gather-commons.db4o</param>
+            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features.neo/1.0.0/xml/features!/neo4j-meta</param>
+            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0.0/xml/features!/gather-core</param>
+            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0.0/xml/features!/gather-hsqldb</param>
+            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0.0/xml/features!/neo4j-service</param>
+            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0.0/xml/features!/eclipselink</param>
+            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0.0/xml/features!/gather-commons.db4o</param>
           </provision>
         </configuration>
       </plugin>

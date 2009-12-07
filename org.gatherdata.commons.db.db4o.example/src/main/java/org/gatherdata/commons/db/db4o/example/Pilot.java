@@ -14,6 +14,8 @@ public class Pilot {
     private int points = 0;
     
     private transient DateTime lastUpdate;
+    
+    public Pilot() {;}
         
     public Pilot(String name,int points) {
         this.name=name;

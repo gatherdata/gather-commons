@@ -32,9 +32,7 @@ public class Pilot {
     
     private int points = 0;
     
-    public Pilot() {
-        ;
-    }
+    public Pilot() {;}
         
     public Pilot(String name,int points) {
         this.name=name;
