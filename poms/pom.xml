@@ -96,11 +96,6 @@
         <scope>provided</scope>
       </dependency>
       <dependency>
-        <groupId>org.gatherdata.gather-commons</groupId>
-        <artifactId>org.ops4j.peaberry.activation</artifactId>
-        <version>${peaberry-activation.version}</version>
-      </dependency>
-      <dependency>
         <groupId>org.apache.geronimo.specs</groupId>
         <artifactId>geronimo-jta_1.1_spec</artifactId>
         <version>${geronimo.jta.version}</version>

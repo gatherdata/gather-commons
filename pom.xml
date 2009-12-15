@@ -24,7 +24,6 @@
     <!-- versions -->
     <gather-commons.version>1.0.0</gather-commons.version>
     <peaberry.version>1.1.1</peaberry.version>
-    <peaberry-activation.version>1.2-SNAPSHOT_1</peaberry-activation.version>
     <guice.version>2.0-SNAPSHOT</guice.version>
     <aopalliance.version>1.0_1</aopalliance.version>
     <joda-time.version>1.5.2_1</joda-time.version>
@@ -53,7 +52,6 @@
 
     <!-- wrapped 3rd party libraries -->
     <module>wrappers/org.apache.lucene.core</module>
-    <module>wrappers/org.ops4j.peaberry.activation</module>
 
     <module>org.gatherdata.commons.core</module>
     <module>org.gatherdata.commons.example</module>
