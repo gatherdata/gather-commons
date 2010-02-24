@@ -9,7 +9,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.gatherdata</groupId>
   <artifactId>gather-commons</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
 
   <name>gather-commons (project)</name>
 
@@ -21,16 +21,21 @@
     <!-- runtime properties -->
     <org.osgi.service.http.port>8080</org.osgi.service.http.port>
     <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
+    <!-- karaf config -->
+    <karaf.version>1.2.0</karaf.version>
+    <karaf.startRemoteShell>false</karaf.startRemoteShell> 
+    <karaf.startLocalConsole>true</karaf.startLocalConsole>
+    <karaf.systemBundlesStartLevel>0</karaf.systemBundlesStartLevel>
     <!-- versions -->
-    <gather-commons.version>1.0.0</gather-commons.version>
+    <gather-commons.version>1.0.1-SNAPSHOT</gather-commons.version>
     <peaberry.version>1.1.1</peaberry.version>
-    <guice.version>2.0-SNAPSHOT</guice.version>
+    <guice.version>2.0</guice.version>
     <aopalliance.version>1.0_1</aopalliance.version>
     <joda-time.version>1.5.2_1</joda-time.version>
     <commons-codec.version>1.2_1</commons-codec.version>
     <commons-lang.version>2.4</commons-lang.version>
     <geronimo.jta.version>1.1.1</geronimo.jta.version>
-    <eclipselink.version>2.0.0-RC1</eclipselink.version>
+    <eclipselink.version>2.0.0</eclipselink.version>
     <junit.version>4.5</junit.version>
     <hamcrest.version>1.1</hamcrest.version>
     <easymock.version>2.3.0</easymock.version>
@@ -43,6 +48,9 @@
     <neo4j.neo-meta.version>0.5</neo4j.neo-meta.version>
     <db4o.version>7.11</db4o.version>
     <ant.version>1.7.0_1</ant.version>
+    <scala.version>2.7.7</scala.version>
+    <scalamodules.version>2.0-SNAPSHOT</scalamodules.version>
+
   </properties>
 
   <packaging>pom</packaging>
@@ -120,16 +128,15 @@
         <configuration>
           <framework>felix</framework>
           <args>etc/runner.args</args>
-          <profiles>karaf.shell</profiles>
           <!-- noDependencies=true to force all required bundles to be part of a feature -->
           <noDependencies>true</noDependencies>
           <provision>
-            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features.neo/1.0.0/xml/features!/neo4j-meta</param>
-            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0.0/xml/features!/gather-core</param>
-            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0.0/xml/features!/gather-hsqldb</param>
-            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0.0/xml/features!/neo4j-service</param>
-            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0.0/xml/features!/eclipselink</param>
-            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/1.0.0/xml/features!/gather-commons.db4o</param>
+            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/${gather-commons.version}/xml/features!/karaf-shell</param>
+            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/${gather-commons.version}/xml/features!/gather-core</param>
+            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/${gather-commons.version}/xml/features!/gather-hsqldb</param>
+            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/${gather-commons.version}/xml/features!/eclipselink</param>
+            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/${gather-commons.version}/xml/features!/gather-commons.db4o</param>
+            <param>scan-features:mvn:org.gatherdata.gather-commons/org.gatherdata.commons.features/${gather-commons.version}/xml/features!/scala-osgi</param>
           </provision>
         </configuration>
       </plugin>
@@ -144,7 +151,7 @@
           <aggregate>true</aggregate>
           <properties>
             <owner>AED</owner>
-            <year>2009</year>
+            <year>2010</year>
             <email>info@gatherdata.org</email>
           </properties>
           <includes>

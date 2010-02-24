@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<features>
+<features name="gather-commons ${gather-commons.version}">
     
     <feature name="neo4j-dependencies" version="${neo4j.neo.version}">
         <bundle>mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
@@ -16,9 +16,7 @@
     <feature name="google-peaberry" version="${peaberry.version}">
         <bundle>mvn:org.ops4j/peaberry/${peaberry.version}</bundle>
         <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aopalliance/${aopalliance.version}</bundle>
-        <bundle>mvn:org.ops4j.peaberry.dependencies/guice/${guice.version}</bundle>
-        <!-- bundle>mvn:com.google.inject/guice/${guice.version}</bundle -->
-        <!-- bundle>mvn:org.gatherdata.gather-commons/org.ops4j.peaberry.activation/${peaberry-activation.version}</bundle -->
+        <bundle>mvn:com.google.inject/guice/${guice.version}</bundle>
     </feature>
 
     <feature name="eclipselink" version="${eclipselink.version}">
@@ -45,14 +43,51 @@
     <feature name="gather-hsqldb" version="${gather-commons.version}">
         <feature>gather-core</feature>
         <bundle>mvn:org.hsqldb/com.springsource.org.hsqldb/1.8.0.9</bundle>
-        <bundle>mvn:org.gatherdata.gather-commons/org.gatherdata.commons.db.hsqldb/${gather-commons.version}</bundle>
+        <bundle>mvn:org.gatherdata.gather-commons/org.gatherdata.commons.db.hsqldb/1.0.0</bundle>
     </feature> 
+
+    <feature name="gather-mysql" version="5.1.6">
+      <bundle>mvn:http://repository.springsource.com/maven/bundles/external/!com.mchange.c3p0/com.springsource.com.mchange.v2.c3p0/0.9.1.2</bundle>
+      <bundle>mvn:http://repository.springsource.com/maven/bundles/external/!com.mysql.jdbc/com.springsource.com.mysql.jdbc/5.1.6</bundle>
+    </feature>
 
     <feature name="gather-commons.db4o" version="${db4o.version}">
         <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.ant/${ant.version}</bundle>
-        <bundle>mvn:org.gatherdata.gather-commons/org.gatherdata.commons.db.db4o/${gather-commons.version}</bundle>
+        <bundle>mvn:org.gatherdata.gather-commons/org.gatherdata.commons.db.db4o/1.0.0</bundle>
         <bundle>mvn:org.gatherdata.gather-commons/org.gatherdata.commons.db.db4o.osgi/${db4o.version}</bundle>
         <bundle>mvn:org.gatherdata.gather-commons/org.gatherdata.commons.db.db4o.api/${db4o.version}</bundle>
+    </feature>
+
+    <feature name="scala-osgi" version="1.0.0-SNAPSHOT">
+      <bundle>mvn:http://scala-tools.org/repo-releases!org.scala-lang-osgi/scala-library/${scala.version}</bundle>
+      <bundle>mvn:http://scala-tools.org/repo-snapshots!org.scalamodules/scalamodules-core/${scalamodules.version}</bundle>
+      <bundle>mvn:http://scala-tools.org/repo-snapshots!org.scalamodules/scalamodules-services/${scalamodules.version}</bundle>
+    </feature>
+
+    <feature name="felix-services" version="">
+      <bundle>mvn:org.apache.felix/org.apache.felix.bundlerepository/1.4.2</bundle>
+      <bundle>mvn:org.apache.felix/org.apache.felix.configadmin/1.2.4</bundle>
+      <bundle>mvn:org.apache.felix/org.apache.felix.eventadmin/1.0.0</bundle>
+      <bundle>mvn:org.apache.felix/org.apache.felix.fileinstall/2.0.4</bundle>
+      <bundle>mvn:org.apache.felix/org.apache.felix.scr/1.4.0</bundle>
+      <bundle>mvn:org.apache.felix/org.apache.felix.metatype/1.0.4</bundle>
+      <bundle>mvn:org.ops4j.pax.logging/pax-logging-api/1.4</bundle>
+      <bundle>mvn:org.ops4j.pax.logging/pax-logging-service/1.4</bundle>
+    </feature>
+
+    <feature name="karaf-shell" version="${karaf.version}">
+      <feature>felix-services</feature>
+      <bundle>mvn:org.apache.geronimo.blueprint/geronimo-blueprint/1.0.0</bundle>
+      <bundle>mvn:org.apache.felix.gogo/org.apache.felix.gogo.runtime/0.2.2</bundle>
+      <bundle>mvn:org.apache.felix/org.apache.felix.bundlerepository/1.4.2</bundle>
+      <bundle>mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.console/1.2.0</bundle>
+      <bundle>mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.commands/1.2.0</bundle>
+      <bundle>mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.config/1.2.0</bundle>
+      <bundle>mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.log/1.2.0</bundle>
+      <bundle>mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.osgi/1.2.0</bundle>
+      <bundle>mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.packages/1.2.0</bundle>
+      <bundle>mvn:org.apache.felix.karaf.shell/org.apache.felix.karaf.shell.obr/1.2.0</bundle>
+
     </feature>
 
 </features>

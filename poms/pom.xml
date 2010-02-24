@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.gatherdata</groupId>
     <artifactId>gather-commons</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
@@ -83,8 +83,8 @@
         <scope>provided</scope>
       </dependency>
       <dependency>
-        <groupId>org.ops4j.peaberry.dependencies</groupId>
         <!-- groupId>com.google.inject</groupId -->
+        <groupId>com.google.inject</groupId>
         <artifactId>guice</artifactId>
         <version>${guice.version}</version>
         <scope>provided</scope>

@@ -5,7 +5,7 @@
     <relativePath>../poms/compiled/</relativePath>
     <groupId>org.gatherdata.gather-commons.build</groupId>
     <artifactId>compiled-bundle-settings</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
   </parent>
 
   <properties>
@@ -16,7 +16,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.gatherdata.gather-commons</groupId>
   <artifactId>org.gatherdata.commons.example</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
 
   <name>gather-commons :: example service</name>
 
@@ -42,8 +42,8 @@
       <artifactId>org.apache.servicemix.bundles.aopalliance</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.ops4j.peaberry.dependencies</groupId>
       <!-- groupId>com.google.inject</groupId -->
+      <groupId>com.google.inject</groupId>
       <artifactId>guice</artifactId>
     </dependency>
   </dependencies>

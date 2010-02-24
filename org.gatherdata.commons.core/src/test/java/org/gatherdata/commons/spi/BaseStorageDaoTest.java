@@ -56,6 +56,8 @@ public abstract class BaseStorageDaoTest<EntityType extends UniqueEntity, DaoTyp
     
     protected abstract void endTransaction();
     
+    protected abstract void rollbackTransaction();
+    
     @Before
     public void createDaoUnderTest() {
         dao = createStorageDaoImpl();
@@ -70,7 +72,7 @@ public abstract class BaseStorageDaoTest<EntityType extends UniqueEntity, DaoTyp
         EntityType entityToSave = createMockEntity();
         beginTransaction();
         EntityType savedEntity = dao.save(entityToSave);
-        endTransaction();
+        rollbackTransaction();
         assertEquals(entityToSave, savedEntity);
     }
     
@@ -84,11 +86,9 @@ public abstract class BaseStorageDaoTest<EntityType extends UniqueEntity, DaoTyp
 
 		beginTransaction();
         EntityType savedEntity = dao.save(entityToSave);
-        endTransaction();
-		
-		beginTransaction();
+
         assertTrue(dao.exists(entityToSave.getUid()));
-		endTransaction();
+        rollbackTransaction();
     }
     
     @Test
@@ -109,7 +109,7 @@ public abstract class BaseStorageDaoTest<EntityType extends UniqueEntity, DaoTyp
         beginTransaction();
         Iterable<EntityType> allEntitiesList = (Iterable<EntityType>) dao.getAll();
         assertThat(allEntitiesList, containsAll(entitiesToSave));
-        endTransaction();
+        rollbackTransaction();
     }
 
     @Test
@@ -123,9 +123,7 @@ public abstract class BaseStorageDaoTest<EntityType extends UniqueEntity, DaoTyp
             entitiesToSave.add(entityToSave);
             dao.save(entityToSave);
         }
-        endTransaction();
         
-        beginTransaction();
         for (EntityType entityToRetrieve : entitiesToSave) {
             URI uidToRetrieve = entityToRetrieve.getUid();
             String uidAsString = uidToRetrieve.toASCIIString();
@@ -134,7 +132,7 @@ public abstract class BaseStorageDaoTest<EntityType extends UniqueEntity, DaoTyp
             assertNotNull(retrievedEntity);
             assertEquals(entityToRetrieve, retrievedEntity);
         }
-        endTransaction();
+        rollbackTransaction();
     }
     
     @Test
@@ -153,7 +151,6 @@ public abstract class BaseStorageDaoTest<EntityType extends UniqueEntity, DaoTyp
                 entityToRemove = entityToSave;
             }
         }
-        endTransaction();
         
         dao.remove(entityToRemove.getUid());
         
@@ -161,6 +158,7 @@ public abstract class BaseStorageDaoTest<EntityType extends UniqueEntity, DaoTyp
 
         Iterable<EntityType> allEntitiesList = (Iterable<EntityType>) dao.getAll();
         assertThat(allEntitiesList, not(containsAll(entitiesToSave)) );
+        rollbackTransaction();
     }
 
 }

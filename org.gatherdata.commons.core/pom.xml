@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.gatherdata.gather-commons</groupId>
     <artifactId>org.gatherdata.commons.core</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <name>gather-commons :: core library</name>
 
