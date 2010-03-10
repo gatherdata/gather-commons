@@ -58,10 +58,10 @@
         <bundle>mvn:org.gatherdata.gather-commons/org.gatherdata.commons.db.db4o.api/${db4o.version}</bundle>
     </feature>
 
-    <feature name="scala-osgi" version="1.0.0-SNAPSHOT">
+    <feature name="scala-osgi" version="1.5">
       <bundle>mvn:http://scala-tools.org/repo-releases!org.scala-lang-osgi/scala-library/${scala.version}</bundle>
-      <bundle>mvn:http://scala-tools.org/repo-snapshots!org.scalamodules/scalamodules-core/${scalamodules.version}</bundle>
-      <bundle>mvn:http://scala-tools.org/repo-snapshots!org.scalamodules/scalamodules-services/${scalamodules.version}</bundle>
+      <bundle>mvn:http://scala-tools.org/repo-releases!org.scalamodules/scalamodules-core/${scalamodules.version}</bundle>
+      <bundle>mvn:http://scala-tools.org/repo-releases!org.scalamodules/scalamodules-services/${scalamodules.version}</bundle>
     </feature>
 
     <feature name="felix-services" version="">
