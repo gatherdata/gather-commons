@@ -7,7 +7,7 @@
         <relativePath>../poms/compiled/</relativePath>
         <groupId>org.gatherdata.gather-commons.build</groupId>
         <artifactId>compiled-bundle-settings</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
 
     <properties>
