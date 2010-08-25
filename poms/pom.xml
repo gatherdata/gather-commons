@@ -83,7 +83,6 @@
         <scope>provided</scope>
       </dependency>
       <dependency>
-        <!-- groupId>com.google.inject</groupId -->
         <groupId>com.google.inject</groupId>
         <artifactId>guice</artifactId>
         <version>${guice.version}</version>
