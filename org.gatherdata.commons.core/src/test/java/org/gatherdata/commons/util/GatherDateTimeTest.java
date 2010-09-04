@@ -18,6 +18,8 @@ import static org.junit.Assert.assertNotNull;
 
 import java.text.ParseException;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.SimpleTimeZone;
 
 import org.gatherdata.commons.util.GatherDateTimeParser;
 import org.joda.time.DateTime;
@@ -72,6 +74,17 @@ public class GatherDateTimeTest {
         assertThat(parsedDateTime.getHourOfDay(), is(14));
         assertThat(parsedDateTime.getMinuteOfHour(), is(23));
         assertThat(parsedDateTime.getSecondOfMinute(), is(59));
+        
+        // sanity check that derived gregorian calendar is correct
+        GregorianCalendar cal = parsedDateTime.toGregorianCalendar();
+        assertThat(cal.getTimeZone().getRawOffset(), is(0));
+        assertThat(cal.get(Calendar.YEAR), is (2009));
+        assertThat(cal.get(Calendar.MONTH), is (9));
+        assertThat(cal.get(Calendar.DAY_OF_MONTH), is (11));
+        assertThat(cal.get(Calendar.HOUR_OF_DAY), is (14));
+        assertThat(cal.get(Calendar.MINUTE), is (23));
+        assertThat(cal.get(Calendar.SECOND), is (59));
+
     }
     
     @Test

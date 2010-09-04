@@ -37,6 +37,7 @@ public class HsqldbServiceImpl implements HsqldbService {
 
             server.setDatabaseName(0, "test");
             server.setDatabasePath(0, "mem:test;sql.enforce_strict_size=true");
+          
             
             server.start();
         } else {
