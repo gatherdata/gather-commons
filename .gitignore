@@ -1,5 +1,6 @@
 *.class
 *.iml
+.idea/
 .hg/
 .hgignore
 .metadata/
@@ -8,3 +9,4 @@
 .settings/
 target/
 runner/
+.DS_Store
